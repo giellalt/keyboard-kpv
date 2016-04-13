@@ -1,0 +1,27 @@
+internalName: _keyboard
+
+locales:
+  en:
+    name: &bundleName " Keyboards"
+    description: "Mobile OS keyboards for  languages from the Divvun group at UiT."
+  nb:
+    name: " tastatur"
+    description: "Mobiltastatur for  fra Divvun-gruppa."
+
+author: The Divvun Group, UiT Norgga árktalaš universitehta
+email: feedback@divvun.no
+
+layouts: [kpv]
+
+version: 1.0
+build: 1
+
+targets:
+  android:
+    packageId: no.uit.giella.keyboards.
+    keyStore: /Users/brendan/git/softkbdgen/test.keystore
+    keyAlias: sami_keyboard
+
+  ios:
+    packageId: no.uit.giella.keyboards.
+    bundleName: *bundleName

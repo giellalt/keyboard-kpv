@@ -1,0 +1,62 @@
+internalName: Komi Zyrian
+
+displayNames:
+  kpv: Коми-зырян кыв
+  en: Komi Zyrian
+  fi: Komisyrjääni
+  ru: Коми-зырянский язык
+
+locale: kpv
+ 
+modes:
+  default: |
+    й і у к е н г ш ӧ з х ъ
+    ф ы в а п р о л д ж э ё
+    я ч с м и т ь б ю
+  shift: |
+    Й І У К Е Н Г Ш Ӧ З Х Ъ
+    Ф Ы В А П Р О Л Д Ж Э Ё
+    Я Ч С М И Т Ь Б Ю
+
+longpress:
+  І: Ц
+  Ӧ: Щ
+  И: І
+  Д: Ԁ Ԃ 
+  Ж: Җ
+  З: Ԅ Ԇ
+  Й: Ј
+  Л: Ԉ
+  Н: Ԋ
+  С: Ԍ
+  Т: Ԏ
+
+  
+  і: ц
+  ӧ: щ
+  и: і
+  д: ԁ ԃ
+  ж: җ
+  з: ԅ ԇ
+  й: ј
+  л: ԉ
+  н: ԋ
+  с: ԍ
+  т: ԏ
+
+styles:
+  tablet:
+    actions:
+      backspace: [1, right, fill]
+      enter: [2, right, fill]
+      shift: [3, both, fill]
+  phone:
+    actions:
+      shift: [3, left, fill]
+      backspace: [3, right, fill]
+
+strings:
+  space: Пробел
+  return: Ввод
+#  space: кэ̄сск
+#  return: рядтвоайхэсс

@@ -1,0 +1,47 @@
+$Revision: 132313 $
+Text cleanup: giellatekno -> Giella in appropriate places, improved syntax and
+formulations, corrections.
+
+r132251:
+Removed the desktop and mobile subdirs, moving all build code to the project
+root dir.
+
+r103881:
+no.uit.giella instead of no.divvun.
+
+r103627:
+Doing the real addition of that dir.
+
+r103625:
+Added a new dir mobile/doc/ to store development and other documentation in.
+
+r103616:
+Now with support for keyboard collection names.
+
+r103271:
+sami-ime -> giella-ime.
+
+r103241:
+Use the language code in the internalName.
+
+r103237:
+Shorten the default bundle name - this is what is displayed on the home screen.
+
+r103236:
+Updates to the project file.
+
+r102976:
+Add strings for the space bar and the return key.
+
+r102974:
+Ensure that the git working copies are up-to-date.
+
+r102312:
+Corrected replace string from __LANGUAGE__ to __UNDEFINED__.
+
+r102305:
+Added first version of a build infra for the mobile keyboards, with some basic
+templates for keyboard files.
+
+r95939:
+Setting up the basic dir structure, adding a few default files.
