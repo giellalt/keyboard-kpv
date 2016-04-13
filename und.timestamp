@@ -1,4 +1,10 @@
-$Revision: 132313 $
+$Revision: 132326 $
+Modernised yaml structure for keyboard layouts.
+
+r132325:
+Added mobile- prefix to the sections for mobile keyboard specifications.
+
+r132313:
 Text cleanup: giellatekno -> Giella in appropriate places, improved syntax and
 formulations, corrections.
 
