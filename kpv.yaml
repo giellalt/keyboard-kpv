@@ -20,42 +20,60 @@ modes:
     Я Ч С М И Т Ь Б Ю
 
 # desktop keyboard layouts:
-  "iso-default": &default |
-    ' 1 2 3 4 5 6 7 8 9 0 + ´
-    á š e r t ŧ u i o p å ŋ
-    a s d f g h j k l ø æ đ
-    ž z č c v b n m , . -
-  "iso-shift": |
-    § ! " # $ % & / ( ) = ? `
-    Á Š E R T Ŧ U I O P Å Ŋ
-    A S D F G H J K L Ø Æ Đ
-    Ž Z Č C V B N M ; : _
-  "iso-caps": |
-    ' 1 2 3 4 5 6 7 8 9 0 + ´
-    Á Š E R T Ŧ U I O P Å Ŋ
-    A S D F G H J K L Ø Æ Đ
-    Ž Z Č C V B N M , . -
-  "iso-alt": |
-    ' © ™ £ € ˆ § | [ ] ˝ ± ´
-    q w é ˇ þ y ˀ ʼ œ ˙ ˚ ¨
-    ¯ ß ð ƒ . ˛ ˘ ˜ - ö ä @
-    < ÷ x ¸ ‹ › ‘ ’ ‚ … –
-  "iso-alt+shift": |
-    § ¡ ® ¥ ¢ ̂ ¶ \ { } ̋ ¿ \u{300}
-    Q W É ̌ Þ Y ̉ ̛ Œ \u{307} \u{30A} \u{308}
-    ̄ № Ð ʔ ̣ ̨ ̆ ̃ ̵ Ö Ä *
-    > ⁄ X ̧ « » “ ” „ · —
-  "iso-alt+caps": |
-    ' © ™ £ € ˆ § | [ ] ˝ ± \u{300}
-    Q W É ˇ Þ Y ˀ ʼ Œ ˙ ˚ ¨
-    ¯ SS Ð ƒ . ˛ ˘ ˜ - Ö Ä @
-    < ÷ X ¸ ‹ › ‘ ’ ‚ … –
-  "iso-ctrl": |
-    0 1 2 3 4 5 6 7 8 9 0 \u{1F} =
+  # default
+  iso-default: |
+    ] 1 2 3 4 5 6 7 8 9 0 - =
+    й і у к е н г ш ӧ з х ъ
+    ф ы в а п р о л д ж э \
+    ё я ч с м и т ь б ю .
+  # shift caps+shiftR+shiftL? caps+shiftL cmd+caps cmd+optR+optL?
+  iso-shift: |
+    [ ! " № ; % : ? * ( ) _ +
+    Й І У К Е Н Г Ш Ӧ З Х Ъ
+    Ф Ы В А П Р О Л Д Ж Э /
+    Ё Я Ч С М И Т Ь Б Ю ,
+  # caps
+  iso-caps: |
+    ] 1 2 3 4 5 6 7 8 9 0 - =
+    Й І У К Е Н Г Ш Ӧ З Х Ъ
+    Ф Ы В А П Р О Л Д Ж Э \
+    Ё Я Ч С М И Т Ь Б Ю .
+  # optL+caps
+  iso-caps+alt: |
+    ~ ! @ # $ © ^ & * ( ) – ≠
+    Ј Џ Ў Ќ † Њ Ѓ Ѕ Щ ’ ” Ґ
+    d Ѕ Ћ ± √ ∞ µ Љ L » Є |
+    § Ђ X C V І ƒ M < > Ї
+  # opt cmd+optL+caps?
+  iso-alt: |
+    ` ! @ # $ © ^ & * ( ) – ≠
+    ј ц ў ќ † њ ѓ ѕ щ ‘ “ «
+    d z ћ ÷ … • ∆ љ l « є \
+    § ђ x c v і ƒ m ≤ ≥ ї
+  # opt+shift+cmd?+caps?
+  iso-alt+shift: |
+    ~ ™ § £ € ® ¬ ¶ ° { } — ≈
+    Ј Ц Ў Ќ † Њ Ѓ Ѕ Щ ’ ” »
+    d Z Ћ ± √ ∞ µ Љ L » Є |
+    ± Ђ X C V І ƒ M < > Ї
+  # ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrlR+opt+caps+shift cmd+ctrlL+opt+caps+shift cmd+ctrl+caps+shift+optR? cmd+ctrl+caps+shift+optL? cmd+ctrl+opt+caps+shiftR? cmd+ctrl+opt+caps+shiftL?
+  iso-ctrl: |
+    ` 1 2 3 4 5 6 7 8 9 0 \u{1F} +
     \u{11} \u{17} \u{5} \u{12} \u{14} \u{19} \u{15} \u{9} \u{F} \u{10} \u{1B} \u{1D}
-    \u{1} \u{13} \u{4} \u{6} \u{7} \u{8} \u{A} \u{B} \u{C} ; ' \u{1C}
-    ` \u{1A} \u{18} \u{3} \u{16} \u{2} \u{E} \u{D} , . /
-  "osx-cmd": *default
+    \u{1} \u{13} \u{4} \u{6} \u{7} \u{8} \u{A} \u{B} \u{C} : " \u{1C}
+    0 \u{1A} \u{18} \u{3} \u{16} \u{2} \u{E} \u{D} , . /
+  # cmd+shiftR? cmd+shiftR+shiftL? cmd+caps+shift
+  osx-cmd: |
+    ` 1 2 3 4 5 6 7 8 9 0 - =
+    q w e r t y u i o p [ ]
+    a s d f g h j k l ; ' \
+    ` z x c v b n m , . /
+  # cmd+shiftL
+  osx-cmd+shift: |
+    ~ ! @ # $ % ^ & * ( ) _ +
+    Q W E R T Y U I O P { }
+    A S D F G H J K L : " |
+    ~ Z X C V B N M < > ?
 
 # mobile keyboards properties:
 longpress:
@@ -607,8 +625,7 @@ transforms:
 
 special:
   space:
-    "iso-caps": \u{A0}
-    "iso-alt": \u{A0}
-    "iso-alt+shift": \u{A0}
-    "iso-alt+caps": \u{A0}
+    iso-caps+alt: \u{A0}
+    iso-alt: \u{A0}
+    iso-alt+shift: \u{A0}
 
