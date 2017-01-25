@@ -37,18 +37,18 @@ AC_ARG_VAR([GTMAINTAINER], [define if you are maintaining the infra to get addit
 AM_CONDITIONAL([WANT_MAINTAIN], [test x"$GTMAINTAINER" != x])
 
 AC_PATH_PROG([GTSCRIPT], [gt-version.sh], [false],
-             [$GTCORE/scripts/$PATH_SEPARATOR$GTHOME/gtcore/scripts/])
+             [$GTCORE/scripts/$PATH_SEPARATOR$GTHOME/giella-core/scripts/])
 AS_IF([test "x$GTSCRIPT" = xfalse], 
       [cat<<<EOT
 Could not find Giella infra core scripts in:
        $GTCORE/scripts 
-       $GTHOME/gtcore/scripts 
+       $GTHOME/giella-core/scripts 
        $PATH 
 Please do one of the following: 
-       a. svn co https://victorio.uit.no/langtech/trunk/gtcore
-       b. cd gtcore/scripts && ./autogen.sh && ./configure && make install
+       a. svn co https://victorio.uit.no/langtech/trunk/giella-core
+       b. cd giella-core/scripts && ./autogen.sh && ./configure && make install
        c. $GTHOME/gt/script/gtsetup.sh
-       d. add "export GTCORE=path/to/gtcore" to your ~/.profile or similar
+       d. add "export GTCORE=path/to/giella-core" to your ~/.profile or similar
 EOT
        AC_MSG_ERROR([gtversion.sh could not be executed])])
 

@@ -1,4 +1,7 @@
-$Revision: 132388 $
+$Revision: 147223 $
+Replaced gtcore with giella-core.
+
+r132388:
 Added support for drafting a keyboard based on existing cldr keyboard data.
 
 r132385:
