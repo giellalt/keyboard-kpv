@@ -1,4 +1,12 @@
-$Revision: 147223 $
+$Revision: 151088 $
+Corrected one instance of replacement text.
+
+r151085:
+The keyboards are now built per language: replaced __COLLECTION__ with __UND__,
+and changed other bits of information to fit this new scheme. Updated copyright
+year.
+
+r147223:
 Replaced gtcore with giella-core.
 
 r132388:

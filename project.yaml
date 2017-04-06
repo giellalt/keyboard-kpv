@@ -1,17 +1,17 @@
-internalName: _keyboard
+internalName: kpv_keyboard
 
 locales:
   en:
-    name: &bundleName " Keyboards"
-    description: "Mobile OS keyboards for  languages from the Divvun group at UiT."
+    name: &bundleName "Komi-Zyrian Keyboards"
+    description: "Mobile OS keyboards for the Komi-Zyrian language from the Divvun group at UiT."
   nb:
-    name: " tastatur"
-    description: "Mobiltastatur for  fra Divvun-gruppa."
+    name: "Komi-Zyrian tastatur"
+    description: "Mobiltastatur for Komi-Zyrian fra Divvun-gruppa."
 
 author: The Divvun Group, UiT Norgga árktalaš universitehta
 email: feedback@divvun.no
 
-copyright: (c) 2016 Divvun/Giellatekno/UiT
+copyright: (c) 2017 Divvun/Giellatekno/UiT
 organisation: UiT Norgga árktalaš universitehta
 
 layouts: [kpv]
@@ -21,17 +21,17 @@ build: 1
 
 targets:
   android:
-    packageId: no.uit.giella.keyboards.__COLLECTION__
-    icon: sami-icon.pdf
+    packageId: no.uit.giella.keyboards.kpv
+    icon: kpv-icon.pdf
     keyStore: /Users/brendan/git/softkbdgen/test.keystore
-    keyAlias: sami_keyboard
+    keyAlias: kpv_keyboard
 
   ios: &AppleID
     codeSignId: "iOS Development"
     provisioningProfileId: Test
-    packageId: no.uit.giella.keyboards.__COLLECTION__
+    packageId: no.uit.giella.keyboards.kpv
     bundleName: *bundleName
     icon:
-        90: sami-icon-small.png
-        150: sami-icon.png
+        90: kpv-icon-small.png
+        150: kpv-icon.png
   osx: *AppleID
