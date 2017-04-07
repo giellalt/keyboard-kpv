@@ -1,4 +1,7 @@
-$Revision: 151128 $
+$Revision: 151160 $
+Added default Fastlane files, ios build dirs and an images dir.
+
+r151128:
 Use the Divvun github when cloning dependency stuff.
 
 r151088:
