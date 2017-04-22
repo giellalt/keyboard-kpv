@@ -82,6 +82,7 @@ ios: deps
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	PATH=$(IOS_AUTOTOOLS_PATH):$(PATH) \
 	python3.5 -m $(SOFTKBDGEN) -t ios \
+		-o ios \
 		-b hfst -r deps/$(IOS_IME) $(RELEASE) \
 		project.yaml
 
@@ -90,7 +91,9 @@ android: deps
 	@echo "*** Android build! ***"
 	@echo
 	if ! [[ -z "$(ANDROID_SDK)" ]]; then \
-	PYTHONPATH=deps/$(SOFTKBDGEN) python3.5 -m $(SOFTKBDGEN) -t android \
+	PYTHONPATH=deps/$(SOFTKBDGEN) \
+	python3.5 -m $(SOFTKBDGEN) -t android \
+		-o android \
 		-r deps/$(ANDROID_IME) -b master $(RELEASE) \
 		project.yaml \
 		-K targets.android.keyStore=$(GTPRIV)/admin/dev-accounts/dev_keys/sami_keyboard.keystore ; \
@@ -109,6 +112,7 @@ osx: deps
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	python3.5 -m $(SOFTKBDGEN) -t osx \
+		-o macos \
 		-b hfst $(RELEASE) \
 		project.yaml
 
@@ -118,6 +122,7 @@ svg: deps
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	python3.5 -m $(SOFTKBDGEN) -t svg \
+		-o doc \
 		-b hfst $(RELEASE) \
 		project.yaml
 
@@ -127,6 +132,7 @@ win: deps
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	python3.5 -m $(SOFTKBDGEN) -t win \
+		-o win \
 		-b hfst $(RELEASE) \
 		project.yaml
 
@@ -136,19 +142,20 @@ x11: deps
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	python3.5 -m $(SOFTKBDGEN) -t x11 \
+		-o linux \
 		-b hfst $(RELEASE) \
 		project.yaml
 
 draft: $(GTLANG)-draft.yaml
 $(GTLANG)-draft.yaml: deps \
-				$(GTCORE)/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)
+$(GTHOME)/giella-templates/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)
 	@echo
 	@echo "*** Building draft keyboard yaml file based on: ***"
 	@echo "*** $$GTCORE/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	python3.5 -m kbdgen.cldr cldr2kbdgen \
-		$(GTCORE)/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC) \
+$(GTHOME)/giella-templates/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC) \
 		$@
 
 clean-local:

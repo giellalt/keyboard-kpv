@@ -1,4 +1,9 @@
-$Revision: 151160 $
+$Revision: 151655 $
+Updated the Makefile to support the new -o option of kbdgen. Added output dirs
+for win, android, linux and macos. Updated template dir location for the draft
+generation target.
+
+r151160:
 Added default Fastlane files, ios build dirs and an images dir.
 
 r151128:
