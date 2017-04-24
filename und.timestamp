@@ -1,4 +1,10 @@
-$Revision: 151655 $
+$Revision: 151719 $
+Much more robust identification of GIELLA_CORE and GIELLA_TEMPLATES. Proper
+detection of the python binary, minimum required version is Python3.5. Fixed
+a typo when looking for a specified cldr template file (as opposed to just the
+language code).
+
+r151655:
 Updated the Makefile to support the new -o option of kbdgen. Added output dirs
 for win, android, linux and macos. Updated template dir location for the draft
 generation target.

@@ -36,21 +36,171 @@ AC_DEFUN([gt_PROG_SCRIPTS_PATHS],
 AC_ARG_VAR([GTMAINTAINER], [define if you are maintaining the infra to get additional complaining about infra integrity])
 AM_CONDITIONAL([WANT_MAINTAIN], [test x"$GTMAINTAINER" != x])
 
-AC_PATH_PROG([GTSCRIPT], [gt-version.sh], [false],
-             [$GTCORE/scripts/$PATH_SEPARATOR$GTHOME/giella-core/scripts/])
-AS_IF([test "x$GTSCRIPT" = xfalse], 
-      [cat<<<EOT
-Could not find Giella infra core scripts in:
-       $GTCORE/scripts 
-       $GTHOME/giella-core/scripts 
+################################
+### Giella-core dir:
+################
+AC_ARG_WITH([giella-core],
+            [AS_HELP_STRING([--with-giella-core=DIRECTORY],
+                               [set giella-core to DIRECTORY @<:@default=PATH@:>@])],
+            [with_giella_core=$withval],
+            [with_giella_core=false])
+
+_giella_core_not_found_message="
+GIELLA_CORE could not be set:
+
+Could not set GIELLA_CORE and thus not find required scripts in:
+       \$GIELLA_CORE/scripts 
+       \$GTHOME/giella-core/scripts 
        $PATH 
-Please do one of the following: 
-       a. svn co https://victorio.uit.no/langtech/trunk/giella-core
-       b. cd giella-core/scripts && ./autogen.sh && ./configure && make install
-       c. $GTHOME/gt/script/gtsetup.sh
-       d. add "export GTCORE=path/to/giella-core" to your ~/.profile or similar
-EOT
-       AC_MSG_ERROR([gtversion.sh could not be executed])])
+
+       Please do the following: 
+       1. svn co https://gtsvn.uit.no/langtech/trunk/giella-core
+       2. then either:
+         a: cd giella-core && ./autogen.sh && ./configure && make install
+
+          or:
+         b: add the following to your ~/.bash_profile or ~/.profile:
+
+       export \$GIELLA_CORE=/path/to/giella-core/checkout/dir
+
+       (replace the path with the real path from 1. above)
+
+          or:
+         c: run configure as follows
+
+       ./configure --with-giella-core=/path/to/giella-core/checkout/dir
+
+       (replace the path with the real path from 1. above)
+"
+
+AC_MSG_CHECKING([whether we can set GIELLA_CORE])
+
+# --with-giella-core overrides everything:
+AS_IF([test "x$with_giella_core" != "xfalse" -a \
+          -d "$with_giella_core/scripts" ], [
+    GIELLA_CORE=$with_giella_core
+    ],[
+    # GIELLA_CORE is the env. variable for this dir:
+    AS_IF([test "x$GIELLA_CORE" != "x" -a \
+              -d "$GIELLA_CORE/scripts"], [], [
+        # GIELLA_HOME is the new GTHOME:
+        AS_IF([test "x$GIELLA_HOME" != "x" -a \
+                  -d "$GIELLA_HOME/giella-core/scripts"], [
+            GIELLA_CORE=$GIELLA_HOME/giella-core
+        ], [
+            # GTHOME for backwards compatibility - it is deprecated:
+            AS_IF([test "x$GTHOME" != "x" -a \
+                      -d "$GTHOME/giella-core/scripts"], [
+                GIELLA_CORE=$GTHOME/giella-core
+            ], [
+                # GTCORE for backwards compatibility - it is deprecated:
+                AS_IF([test "x$GTCORE" != "x" -a \
+                          -d "$GTCORE/scripts"], [
+                    GIELLA_CORE=$GTCORE
+                ], [
+                    # Try the gt-core.sh script. NB! It is deprecated:
+                    AS_IF([test "x$GTCORESH" != xfalse -a \
+                           -d "$(${GTCORESH})/scripts"], [
+                        GIELLA_CORE=$(${GTCORESH})
+                    ], [
+                       # If nothing else works, try pkg-config:
+                       AS_IF([pkg-config --exists giella-core], [
+                           GIELLA_CORE=$(pkg-config --variable=dir giella-core)
+                       ], [
+                       AC_MSG_ERROR([${_giella_core_not_found_message}])
+                       ])
+                   ])
+                ])
+            ])
+        ])
+    ])
+])
+AC_MSG_RESULT([$GIELLA_CORE])
+
+# GTCORE env. variable is required by the infrastructure to find scripts:
+AC_ARG_VAR([GIELLA_CORE], [directory for the Giella infra core scripts and other required resources])
+
+GTCORE=${GIELLA_CORE}
+AC_ARG_VAR([GTCORE], [GTCORE = GIELLA_CORE, retained for backwards compatibility while being cleaned out])
+
+##### Check the version of the giella-core, and stop with error message if too old:
+# This is the error message:
+giella_core_too_old_message="
+
+The giella-core is too old, we require at least $_giella_core_min_version.
+
+*** ==> PLEASE ENTER THE FOLLOWING COMMANDS: <== ***
+
+cd $GTCORE
+svn up
+./autogen.sh # required only the first time
+./configure  # required only the first time
+make
+sudo make install # optional, only needed if installed
+                  # earlier or installed on a server.
+"
+
+# Identify the version of giella-core:
+AC_PATH_PROG([GIELLA_CORE_VERSION], [gt-version.sh], [no],
+    [$GTCORE/scripts$PATH_SEPARATOR$GTHOME/giella-core/scripts$PATH_SEPARATOR$PATH])
+AC_MSG_CHECKING([the version of the Giella Core])
+AS_IF([test "x${GIELLA_CORE_VERSION}" != xno],
+        [_giella_core_version=$( ${GIELLA_CORE_VERSION} )],
+        [AC_MSG_ERROR([gt-version.sh could not be found, installation is incomplete!])
+    ])
+AC_MSG_RESULT([$_giella_core_version])
+
+AC_MSG_CHECKING([whether the Giella Core version is at least $_giella_core_min_version])
+# Compare it to the required version, and error out if too old:
+AX_COMPARE_VERSION([$_giella_core_version], [ge], [$_giella_core_min_version],
+                   [giella_core_version_ok=yes], [giella_core_version_ok=no])
+AS_IF([test "x${giella_core_version_ok}" != xno], [AC_MSG_RESULT([$giella_core_version_ok])],
+[AC_MSG_ERROR([$giella_core_too_old_message])])
+
+################################
+### Giella-templates dir:
+################
+# 1. check --with-giella-templates option
+# 2. check env GIELLA_TEMPLATES, then GIELLA_HOME, then GTHOME
+# 3. error if not found
+
+# GIELLA_TEMPLATES is required for building draft keyboard layout based on cldr
+# data:
+AC_ARG_WITH([giella-templates],
+            [AS_HELP_STRING([--with-giella-templates=DIRECTORY],
+                            [search giella-templates data in DIRECTORY @<:@default=PATH@:>@])],
+            [with_giella_templates=$withval],
+            [with_giella_templates=false])
+
+AC_MSG_CHECKING([whether we can set GIELLA_TEMPLATES])
+# --with-giella-templates overrides everything:
+AS_IF([test "x$with_giella_templates" != "xfalse" -a \
+          -d "$with_giella_templates/langs-templates" ], [
+    GIELLA_TEMPLATES=$with_giella_templates
+    ],[
+    # GIELLA_TEMPLATES is the env. variable for this dir:
+    AS_IF([test "x$GIELLA_TEMPLATES" != "x" -a \
+              -d "$GIELLA_TEMPLATES/langs-templates"], [], [
+        # GIELLA_HOME is the new GTHOME:
+        AS_IF([test "x$GIELLA_HOME" != "x" -a \
+                  -d "$GIELLA_HOME/giella-templates/langs-templates"], [
+            GIELLA_TEMPLATES=$GIELLA_HOME/giella-templates
+        ], [
+            # GTHOME for backwards compatibility - it is deprecated:
+            AS_IF([test "x$GTHOME" != "x" -a \
+                      -d "$GTHOME/giella-templates/langs-templates"], [
+                GIELLA_TEMPLATES=$GTHOME/giella-templates
+            ], [AC_MSG_ERROR([Could not find giella-templates data dir to set GIELLA_TEMPLATES])])
+        ])
+    ])
+])
+AC_MSG_RESULT([$GIELLA_TEMPLATES])
+
+# GIELLA_TEMPLATES is required if you do infrastructure maintenance (otherwise it is ignored):
+AC_ARG_VAR([GIELLA_TEMPLATES], [directory for infrastructure templates, required for maintainers])
+
+################ Python requirements: ################
+AM_PATH_PYTHON([3.5],, [:])
 
 ]) # gt_PROG_SCRIPTS_PATHS
 

@@ -15,7 +15,7 @@ DIVVUN_GITHUB=https://github.com/divvun
 # XML_SRC can be a language code or the full xml file name, both given
 # by the user
 XML_SRC=
-CLDR_SRC=$(shell if test ${file: -4} == ".xml" ; then \
+CLDR_SRC=$(shell if test "${XML_SRC: -4}" == ".xml" ; then \
                     echo $(XML_SRC) ; \
                 else \
                     echo "$(XML_SRC)-t-k0-osx-extended.xml" ; \
@@ -81,7 +81,7 @@ ios: deps
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	PATH=$(IOS_AUTOTOOLS_PATH):$(PATH) \
-	python3.5 -m $(SOFTKBDGEN) -t ios \
+	$(PYTHON) -m $(SOFTKBDGEN) -t ios \
 		-o ios \
 		-b hfst -r deps/$(IOS_IME) $(RELEASE) \
 		project.yaml
@@ -92,7 +92,7 @@ android: deps
 	@echo
 	if ! [[ -z "$(ANDROID_SDK)" ]]; then \
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	python3.5 -m $(SOFTKBDGEN) -t android \
+	$(PYTHON) -m $(SOFTKBDGEN) -t android \
 		-o android \
 		-r deps/$(ANDROID_IME) -b master $(RELEASE) \
 		project.yaml \
@@ -111,7 +111,7 @@ osx: deps
 	@echo "*** OSX build! ***"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	python3.5 -m $(SOFTKBDGEN) -t osx \
+	$(PYTHON) -m $(SOFTKBDGEN) -t osx \
 		-o macos \
 		-b hfst $(RELEASE) \
 		project.yaml
@@ -121,7 +121,7 @@ svg: deps
 	@echo "*** SVG build! ***"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	python3.5 -m $(SOFTKBDGEN) -t svg \
+	$(PYTHON) -m $(SOFTKBDGEN) -t svg \
 		-o doc \
 		-b hfst $(RELEASE) \
 		project.yaml
@@ -131,7 +131,7 @@ win: deps
 	@echo "*** Windows build! ***"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	python3.5 -m $(SOFTKBDGEN) -t win \
+	$(PYTHON) -m $(SOFTKBDGEN) -t win \
 		-o win \
 		-b hfst $(RELEASE) \
 		project.yaml
@@ -141,21 +141,21 @@ x11: deps
 	@echo "*** X11 build! ***"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	python3.5 -m $(SOFTKBDGEN) -t x11 \
+	$(PYTHON) -m $(SOFTKBDGEN) -t x11 \
 		-o linux \
 		-b hfst $(RELEASE) \
 		project.yaml
 
 draft: $(GTLANG)-draft.yaml
 $(GTLANG)-draft.yaml: deps \
-$(GTHOME)/giella-templates/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)
+		$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)
 	@echo
 	@echo "*** Building draft keyboard yaml file based on: ***"
 	@echo "*** $$GTCORE/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	python3.5 -m kbdgen.cldr cldr2kbdgen \
-$(GTHOME)/giella-templates/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC) \
+	$(PYTHON) -m kbdgen.cldr cldr2kbdgen \
+		$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC) \
 		$@
 
 clean-local:
