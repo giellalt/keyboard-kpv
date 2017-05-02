@@ -1,4 +1,7 @@
-$Revision: 151719 $
+$Revision: 152064 $
+Added missing M4 macro for comparing versions. Renamed another macro file.
+
+r151719:
 Much more robust identification of GIELLA_CORE and GIELLA_TEMPLATES. Proper
 detection of the python binary, minimum required version is Python3.5. Fixed
 a typo when looking for a specified cldr template file (as opposed to just the
