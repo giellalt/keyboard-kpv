@@ -39,6 +39,10 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 # work; HFST analysers, spell-checkers and so on. These also control
 # some temporary file names etc.
 
+### This is the version of the Giella Core that we require. Update as needed.
+### It is possible to specify also subversion revision: 0.1.2-12345
+_giella_core_min_version=0.2.40
+
 # GTLANG is the language code used to identify this project; it should be same
 # as the directory name in gtsvn and same as ISO 639 three-letter code for the
 # language if possible

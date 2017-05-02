@@ -164,6 +164,28 @@ AS_IF([test "x${giella_core_version_ok}" != xno], [AC_MSG_RESULT([$giella_core_v
 # 2. check env GIELLA_TEMPLATES, then GIELLA_HOME, then GTHOME
 # 3. error if not found
 
+# Error message when $GIELLA_TEMPLATES is/are not found:
+_giella_templates_not_found_message="
+GIELLA_TEMPLATES could not be set:
+
+Could not set GIELLA_TEMPLATES. Please do the following: 
+
+       1. svn co https://gtsvn.uit.no/langtech/trunk/giella-templates
+       2. then either:
+         a: add the following to your ~/.bash_profile or ~/.profile:
+
+       export \$GIELLA_TEMPLATES=/path/to/giella-templates/checkout/dir
+
+       (replace the path with the real path from 1. above)
+
+          or:
+         b: run configure as follows
+
+       ./configure --with-giella-templates=/path/to/giella-templates/checkout/dir
+
+       (replace the path with the real path from 1. above)
+"
+
 # GIELLA_TEMPLATES is required for building draft keyboard layout based on cldr
 # data:
 AC_ARG_WITH([giella-templates],
@@ -190,14 +212,14 @@ AS_IF([test "x$with_giella_templates" != "xfalse" -a \
             AS_IF([test "x$GTHOME" != "x" -a \
                       -d "$GTHOME/giella-templates/langs-templates"], [
                 GIELLA_TEMPLATES=$GTHOME/giella-templates
-            ], [AC_MSG_ERROR([Could not find giella-templates data dir to set GIELLA_TEMPLATES])])
+            ], [AC_MSG_ERROR([${_giella_templates_not_found_message}])])
         ])
     ])
 ])
 AC_MSG_RESULT([$GIELLA_TEMPLATES])
 
 # GIELLA_TEMPLATES is required if you do infrastructure maintenance (otherwise it is ignored):
-AC_ARG_VAR([GIELLA_TEMPLATES], [directory for infrastructure templates, required for maintainers])
+AC_ARG_VAR([GIELLA_TEMPLATES], [directory for keyboard templates and template data])
 
 ################ Python requirements: ################
 AM_PATH_PYTHON([3.5],, [:])

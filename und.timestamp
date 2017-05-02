@@ -1,4 +1,8 @@
-$Revision: 152064 $
+$Revision: 152068 $
+Added variable for specifying the required giella-core version, and also added
+a more helpful text message when GIELLA_TEMPLATES could not be set.
+
+r152064:
 Added missing M4 macro for comparing versions. Renamed another macro file.
 
 r151719:
