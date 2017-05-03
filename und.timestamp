@@ -1,4 +1,7 @@
-$Revision: 152110 $
+$Revision: 152119 $
+Added documentation starting point, and an empty layout file.
+
+r152110:
 Split the dependency check into several targets to make it possible to only
 check for the things needed for a given target. Better feedback when trying to
 build a draft keyboard layout and not finding an existing template file.
