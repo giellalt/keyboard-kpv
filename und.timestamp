@@ -1,4 +1,9 @@
-$Revision: 152068 $
+$Revision: 152086 $
+Switched to using the new codebase for iOS keyboards. It is still based on tasty
+but heavily rewritten and refactored, and it is now an independent codebase, no
+fork.
+
+r152068:
 Added variable for specifying the required giella-core version, and also added
 a more helpful text message when GIELLA_TEMPLATES could not be set.
 

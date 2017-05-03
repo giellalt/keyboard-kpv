@@ -6,7 +6,7 @@ EXTRA_DIST = und.timestamp
 
 IOS_AUTOTOOLS=ios-autotools
 IOS_AUTOTOOLS_PATH=$(shell echo $$(pwd)/deps/$(IOS_AUTOTOOLS))
-IOS_IME=tasty-imitation-keyboard
+IOS_IME=giellakbd-ios
 ANDROID_IME=giella-ime
 SOFTKBDGEN=kbdgen
 DIVVUN_GITHUB=https://github.com/divvun
