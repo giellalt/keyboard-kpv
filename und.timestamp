@@ -1,4 +1,9 @@
-$Revision: 152086 $
+$Revision: 152110 $
+Split the dependency check into several targets to make it possible to only
+check for the things needed for a given target. Better feedback when trying to
+build a draft keyboard layout and not finding an existing template file.
+
+r152086:
 Switched to using the new codebase for iOS keyboards. It is still based on tasty
 but heavily rewritten and refactored, and it is now an independent codebase, no
 fork.

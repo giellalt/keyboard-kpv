@@ -18,7 +18,7 @@ XML_SRC=
 CLDR_SRC=$(shell if test "${XML_SRC: -4}" == ".xml" ; then \
                     echo $(XML_SRC) ; \
                 else \
-                    echo "$(XML_SRC)-t-k0-osx-extended.xml" ; \
+                    echo "osx/$(XML_SRC)-t-k0-osx-extended.xml" ; \
                 fi )
 
 configure: banner
@@ -49,10 +49,12 @@ endif
 
 all-local: mobile
 
-.PHONY: deps mobile ios android desktop svg osx win x11 draft
-deps:
+.PHONY: ios_deps android_deps gen_deps mobile ios android \
+        desktop svg osx win x11 draft
+
+ios_deps:
 	@echo
-	@echo "*** Deps check! ***"
+	@echo "*** iOS build tool dependency check! ***"
 	@echo
 	$(MKDIR_P) deps
 	cd deps; \
@@ -63,30 +65,44 @@ deps:
 	if ! [ -d $(IOS_IME) ]; then\
 		git clone $(DIVVUN_GITHUB)/$(IOS_IME).git ; \
 	fi ; \
-	cd $(IOS_IME)/ && git checkout hfst && git pull --all && cd .. ; \
+	cd $(IOS_IME)/ && git pull --all
+
+android_deps:
+	@echo
+	@echo "*** Android build tool dependency check! ***"
+	@echo
+	$(MKDIR_P) deps
+	cd deps; \
 	if ! [ -d $(ANDROID_IME) ]; then\
 		git clone $(DIVVUN_GITHUB)/$(ANDROID_IME).git ; \
 	fi ; \
-	cd $(ANDROID_IME)/ && git pull --all && cd .. ; \
+	cd $(ANDROID_IME)/ && git pull --all
+
+gen_deps:
+	@echo
+	@echo "*** General build tool dependency check! ***"
+	@echo
+	$(MKDIR_P) deps
+	cd deps; \
 	if ! [ -d $(SOFTKBDGEN) ]; then\
 		git clone $(DIVVUN_GITHUB)/$(SOFTKBDGEN).git ; \
 	fi ; \
-	cd $(SOFTKBDGEN)/ && git pull --all && cd ..
+	cd $(SOFTKBDGEN)/ && git pull --all
 
 mobile: ios android
 
-ios: deps
+ios: gen_deps ios_deps
 	@echo
 	@echo "*** iOS build! ***"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	PATH=$(IOS_AUTOTOOLS_PATH):$(PATH) \
 	$(PYTHON) -m $(SOFTKBDGEN) -t ios \
-		-o ios \
-		-b hfst -r deps/$(IOS_IME) $(RELEASE) \
+		-o $(PWD)/ios \
+		-r deps/$(IOS_IME) $(RELEASE) \
 		project.yaml
 
-android: deps
+android: gen_deps android_deps
 	@echo
 	@echo "*** Android build! ***"
 	@echo
@@ -106,7 +122,7 @@ android: deps
 
 desktop: svg osx win x11
 
-osx: deps
+osx: gen_deps
 	@echo
 	@echo "*** OSX build! ***"
 	@echo
@@ -116,7 +132,7 @@ osx: deps
 		-b hfst $(RELEASE) \
 		project.yaml
 
-svg: deps
+svg: gen_deps
 	@echo
 	@echo "*** SVG build! ***"
 	@echo
@@ -126,7 +142,7 @@ svg: deps
 		-b hfst $(RELEASE) \
 		project.yaml
 
-win: deps
+win: gen_deps
 	@echo
 	@echo "*** Windows build! ***"
 	@echo
@@ -136,7 +152,7 @@ win: deps
 		-b hfst $(RELEASE) \
 		project.yaml
 
-x11: deps
+x11: gen_deps
 	@echo
 	@echo "*** X11 build! ***"
 	@echo
@@ -147,16 +163,29 @@ x11: deps
 		project.yaml
 
 draft: $(GTLANG)-draft.yaml
-$(GTLANG)-draft.yaml: deps \
-		$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)
+$(GTLANG)-draft.yaml: gen_deps
 	@echo
 	@echo "*** Building draft keyboard yaml file based on: ***"
-	@echo "*** $$GTCORE/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC)"
+	@echo "*** $$GTCORE/keyboards-templates/cldr/keyboards/$(CLDR_SRC)"
 	@echo
-	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	$(PYTHON) -m kbdgen.cldr cldr2kbdgen \
-		$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/osx/$(CLDR_SRC) \
-		$@
+	if [[ -f \
+	"$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC)" ]] ; \
+		then \
+		PYTHONPATH=deps/$(SOFTKBDGEN) \
+		$(PYTHON) -m kbdgen.cldr cldr2kbdgen \
+		$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC) \
+		$@ ; \
+	else \
+		echo "*** Template data not found. These are the available templates:";\
+		echo " "; \
+		ls $(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/*/ ; \
+		echo " ";\
+		echo "*** Specify the xml sourse as:"; \
+		echo "*** XML_SRC=\$$(PLATFORMDIR)/\$$(FILENAME), e.g.:" ; \
+		echo " ";\
+		echo "make draft XML_SRC=osx/en-CA-t-k0-osx.xml";\
+		echo " ";\
+	fi
 
 clean-local:
 	-rm -rf *.txt build deps
