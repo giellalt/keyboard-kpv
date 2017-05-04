@@ -47,7 +47,7 @@ und.timestamp: ${GTCORE}/keyboards-templates/und/und.timestamp
 endif
 
 
-all-local: mobile
+all-local: desktop
 
 .PHONY: ios_deps android_deps gen_deps mobile ios android \
         desktop svg osx win x11 draft

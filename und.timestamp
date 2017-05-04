@@ -1,4 +1,7 @@
-$Revision: 152119 $
+$Revision: 152144 $
+By default, build desktop keyboards for now, it works. Mobile keyboards are WIP.
+
+r152119:
 Added documentation starting point, and an empty layout file.
 
 r152110:
