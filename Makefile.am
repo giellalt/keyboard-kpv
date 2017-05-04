@@ -15,11 +15,9 @@ DIVVUN_GITHUB=https://github.com/divvun
 # XML_SRC can be a language code or the full xml file name, both given
 # by the user
 XML_SRC=
-CLDR_SRC=$(shell if test "${XML_SRC: -4}" == ".xml" ; then \
-                    echo $(XML_SRC) ; \
-                else \
-                    echo "osx/$(XML_SRC)-t-k0-osx-extended.xml" ; \
-                fi )
+
+# Set the CLDR_SRC variable depending on the value of XML_SRC:
+CLDR_SRC=$(if $(findstring .xml,$(XML_SRC)),$(XML_SRC),osx/$(XML_SRC)-t-k0-osx.xml)
 
 configure: banner
 
@@ -166,9 +164,9 @@ draft: $(GTLANG)-draft.yaml
 $(GTLANG)-draft.yaml: gen_deps
 	@echo
 	@echo "*** Building draft keyboard yaml file based on: ***"
-	@echo "*** $$GTCORE/keyboards-templates/cldr/keyboards/$(CLDR_SRC)"
+	@echo "*** $(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC)"
 	@echo
-	if [[ -f \
+	@if [[ -f \
 	"$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC)" ]] ; \
 		then \
 		PYTHONPATH=deps/$(SOFTKBDGEN) \
@@ -176,7 +174,11 @@ $(GTLANG)-draft.yaml: gen_deps
 		$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC) \
 		$@ ; \
 	else \
-		echo "*** Template data not found. These are the available templates:";\
+		echo "*** Template data not found, tried:" ;\
+		echo "";\
+		echo "$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC)";\
+		echo "";\
+		echo "These are the available templates:";\
 		echo " "; \
 		ls $(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/*/ ; \
 		echo " ";\

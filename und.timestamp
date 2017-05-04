@@ -1,4 +1,9 @@
-$Revision: 152144 $
+$Revision: 152180 $
+Removed the last remnants of __COLLECTION__. Fixed bug in building file name
+string for the 'make draft' target, so that cldr keyboard data will be correctly
+found.
+
+r152144:
 By default, build desktop keyboards for now, it works. Mobile keyboards are WIP.
 
 r152119:
