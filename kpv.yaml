@@ -123,12 +123,13 @@ strings:
 decimal: ","
 
 deadKeys:
-  "iso-default": ["´"]
-  "iso-shift": ["`"]
-  "iso-caps": ["´"]
-  "iso-alt": ["˝", "ˇ", "˛", "ƒ", "¨", "ʼ", "¯", "ˆ", "˚", "-", "˜", "¸", ".", "˘", "˙", "ˀ"]
-  "iso-alt+shift": ["ʔ", "№"]
-  "iso-alt+caps": ["˝", "ˇ", "˛", "ƒ", "¨", "ʼ", "¯", "ˆ", "˚", "-", "˜", "¸", ".", "˘", "˙", "ˀ"]
+  iso-default: ['´']
+  iso-shift: ['`']
+  iso-caps: ['´']
+  iso-alt: ['-', '.', '¨', '¯', '¸', 'ƒ', 'ʼ', 'ˀ', 'ˆ', 'ˇ', '˘', '˙', '˚', '˛', '˜', '˝']
+  iso-alt+shift: ['ʔ', '№']
+  iso-caps+alt: ['-', '.', '¨', '¯', '¸', 'ƒ', 'ʼ', 'ˀ', 'ˆ', 'ˇ', '˘', '˙', '˚', '˛', '˜', '˝']
+  osx-cmd+alt: [',', '¯', '¸', 'ƒ', '˙', '˜', '˝']
 
 transforms:
   "-":
@@ -291,22 +292,22 @@ transforms:
     G: Ḡ
     i: ī
     I: Ī
-    l: ḹ
-    L: Ḹ
+    l: l\u{323}\u{304}
+    L: L\u{323}\u{304}
     o: ō
     O: Ō
-    r: ṝ
-    R: Ṝ
-    s: s̄
-    S: S̄
+    r: r\u{323}\u{304}
+    R: R\u{323}\u{304}
+    s: s\u{304}
+    S: S\u{304}
     u: ū
     U: Ū
     v: ǖ
     V: Ǖ
     y: ȳ
     Y: Ȳ
-    z: z̄
-    Z: Z̄
+    z: z\u{304}
+    Z: Z\u{304}
   ˘:
     " ": ˘
     a: ă
@@ -378,7 +379,7 @@ transforms:
     o: ö
     O: Ö
     t: ẗ
-    T: T̈
+    T: T\u{308}
     u: ü
     U: Ü
     w: ẅ
@@ -391,16 +392,16 @@ transforms:
     " ": ˚
     a: å
     A: Å
-    e: e̊
-    E: E̊
-    o: o̊
-    O: O̊
+    e: e\u{30A}
+    E: E\u{30A}
+    o: o\u{30A}
+    O: O\u{30A}
     u: ů
     U: Ů
     w: ẘ
-    W: W̊
+    W: W\u{30A}
     y: ẙ
-    Y: Y̊
+    Y: Y\u{30A}
   ˝:
     " ": ˝
     o: ő
@@ -435,8 +436,8 @@ transforms:
     T: Ţ
     ŧ: ț
     Ŧ: Ț
-    z: z̧
-    Z: Z̧
+    z: z\u{327}
+    Z: Z\u{327}
   ˛:
     " ": ˛
     a: ą
@@ -465,10 +466,10 @@ transforms:
     I: Î
     j: ĵ
     J: Ĵ
-    m: m̂
-    M: M̂
-    n: n̂
-    N: N̂
+    m: m\u{302}
+    M: M\u{302}
+    n: n\u{302}
+    N: N\u{302}
     o: ô
     O: Ô
     s: ŝ
@@ -498,7 +499,7 @@ transforms:
     i: ǐ
     I: Ǐ
     j: ǰ
-    J: J̌
+    J: J\u{30C}
     k: ǩ
     K: Ǩ
     l: ľ
@@ -517,8 +518,8 @@ transforms:
     U: Ǔ
     v: ǚ
     V: Ǚ
-    x: ǯ
-    X: Ǯ
+    x: ʒ\u{30C}
+    X: Ʒ\u{30C}
     z: ž
     Z: Ž
   ƒ:
@@ -625,7 +626,7 @@ transforms:
 
 special:
   space:
-    iso-caps+alt: \u{A0}
     iso-alt: \u{A0}
     iso-alt+shift: \u{A0}
-
+    iso-caps+alt: \u{A0}
+    osx-cmd+alt: \u{A0}

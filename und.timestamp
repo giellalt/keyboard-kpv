@@ -1,4 +1,8 @@
-$Revision: 152180 $
+$Revision: 152282 $
+Updated the template layout definition with newly generated data. Fixes
+inconsistencies and faulty data.
+
+r152180:
 Removed the last remnants of __COLLECTION__. Fixed bug in building file name
 string for the 'make draft' target, so that cldr keyboard data will be correctly
 found.
