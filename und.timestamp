@@ -1,4 +1,8 @@
-$Revision: 152362 $
+$Revision: 152381 $
+Changed __UNDEFINED__ into __UND__ in the layout file. Makes for a consistent
+and predictable pattern of filenames based on the internalname.
+
+r152362:
 Added separate icon for macOS (separate from the iOS app icon, that is).
 
 r152350:

@@ -1,4 +1,5 @@
-internalName: komi_zyrian_keyboard
+### Generated from se-t-k0-osx.xml on 2017-05-08 at 07:51.
+internalName: kpv_keyboards
 
 displayNames:
   kpv: Коми-зырян кыв
@@ -7,7 +8,7 @@ displayNames:
   ru: Коми-зырянский язык
 
 locale: kpv
- 
+
 modes:
 # mobile layouts:
   mobile-default: |
