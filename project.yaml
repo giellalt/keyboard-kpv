@@ -32,4 +32,7 @@ targets:
     packageId: no.uit.giella.keyboards.kpv
     bundleName: *bundleName
     icon: images/kpv-icon.png
-  osx: *AppleID
+  osx:
+    <<: *AppleID
+    icon: images/kpv-icon.png
+    codeSignId: "my-test-installer"
