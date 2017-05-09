@@ -59,11 +59,7 @@ ios_deps:
 	if ! [ -d $(IOS_AUTOTOOLS) ]; then\
 		git clone https://github.com/bbqsrc/$(IOS_AUTOTOOLS).git ; \
 	fi ; \
-	cd $(IOS_AUTOTOOLS)/ && git pull --all && cd ../ ; \
-	if ! [ -d $(IOS_IME) ]; then\
-		git clone $(DIVVUN_GITHUB)/$(IOS_IME).git ; \
-	fi ; \
-	cd $(IOS_IME)/ && git pull --all
+	cd $(IOS_AUTOTOOLS)/ && git pull --all && cd ../ ;
 
 android_deps:
 	@echo
@@ -97,7 +93,7 @@ ios: gen_deps ios_deps
 	PATH=$(IOS_AUTOTOOLS_PATH):$(PATH) \
 	$(PYTHON) -m $(SOFTKBDGEN) -t ios \
 		-o $(PWD)/ios \
-		-r deps/$(IOS_IME) $(RELEASE) \
+		-r $(DIVVUN_GITHUB)/$(IOS_IME).git $(RELEASE) \
 		project.yaml
 
 android: gen_deps android_deps

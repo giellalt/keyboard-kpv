@@ -1,4 +1,8 @@
-$Revision: 152282 $
+$Revision: 152350 $
+Changed the ios keyboard source code repository specification. Now the ios
+keyboard is building again. Also changed the specification of the icon file.
+
+r152282:
 Updated the template layout definition with newly generated data. Fixes
 inconsistencies and faulty data.
 
