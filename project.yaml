@@ -21,8 +21,8 @@ build: 1
 
 targets:
   android:
-    packageId: no.uit.giella.keyboards.__UND__
-    icon: images/__UND__-icon.pdf
+    packageId: no.uit.giella.keyboards.kpv
+    icon: images/kpv-icon.pdf
     keyStore: /Users/brendan/git/softkbdgen/test.keystore
     keyAlias: kpv_keyboard
 
@@ -31,5 +31,5 @@ targets:
     provisioningProfileId: Test
     packageId: no.uit.giella.keyboards.kpv
     bundleName: *bundleName
-    icon: images/__UND__-icon.png
+    icon: images/kpv-icon.png
   osx: *AppleID
