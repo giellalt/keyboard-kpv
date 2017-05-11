@@ -34,5 +34,5 @@ targets:
     icon: images/kpv-icon.png
   osx:
     <<: *AppleID
-    icon: images/kpv-icon.png
+    icon: images/kpv-keyboard-menu-icon.png
     codeSignId: "my-test-installer"

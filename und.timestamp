@@ -1,4 +1,8 @@
-$Revision: 152381 $
+$Revision: 152527 $
+Added template icon for the keyboard menu icon in macOS. Renamed icon ref in the
+project file accordingly.
+
+r152381:
 Changed __UNDEFINED__ into __UND__ in the layout file. Makes for a consistent
 and predictable pattern of filenames based on the internalname.
 
