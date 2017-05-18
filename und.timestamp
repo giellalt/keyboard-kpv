@@ -1,4 +1,8 @@
-$Revision: 152527 $
+$Revision: 152871 $
+Removed the RELEASE flag from everywhere it doesn't make sense. Added correct
+installer signing certificate ID.
+
+r152527:
 Added template icon for the keyboard menu icon in macOS. Renamed icon ref in the
 project file accordingly.
 

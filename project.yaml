@@ -35,4 +35,4 @@ targets:
   osx:
     <<: *AppleID
     icon: images/kpv-keyboard-menu-icon.png
-    codeSignId: "my-test-installer"
+    codeSignId: "Developer ID Installer: The University of Tromso (2K5J2584NX)"
