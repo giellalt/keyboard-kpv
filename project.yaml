@@ -37,3 +37,4 @@ targets:
     icon: images/kpv-keyboard-menu-icon.png
     codeSignId: "Developer ID Installer: The University of Tromso (2K5J2584NX)"
     version: 0.1.0
+    resources: doc

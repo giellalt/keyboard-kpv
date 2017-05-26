@@ -1,4 +1,8 @@
-$Revision: 153153 $
+$Revision: 153190 $
+Added readme.html and background.png files, and added a reference to the
+resource dir in the project file. Modify or replace these files as needed.
+
+r153153:
 Added initial version number for the macOS installer package.
 
 r152871:
