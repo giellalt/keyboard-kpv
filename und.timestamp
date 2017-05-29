@@ -1,4 +1,7 @@
-$Revision: 153205 $
+$Revision: 153241 $
+Removed xhtml namespace declaration - it broke Forrest rendering.
+
+r153205:
 Added link to the installer readme html file.
 
 r153190:
