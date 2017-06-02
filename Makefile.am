@@ -123,7 +123,7 @@ osx: gen_deps
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	$(PYTHON) -m $(SOFTKBDGEN) -t osx \
 		-o macos \
-		-b hfst $(RELEASE) \
+		$(RELEASE) \
 		project.yaml
 
 svg: gen_deps
@@ -133,7 +133,6 @@ svg: gen_deps
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	$(PYTHON) -m $(SOFTKBDGEN) -t svg \
 		-o doc \
-		-b hfst \
 		project.yaml
 
 win: gen_deps
@@ -143,7 +142,6 @@ win: gen_deps
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	$(PYTHON) -m $(SOFTKBDGEN) -t win \
 		-o win \
-		-b hfst \
 		project.yaml
 
 x11: gen_deps
@@ -153,7 +151,6 @@ x11: gen_deps
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	$(PYTHON) -m $(SOFTKBDGEN) -t x11 \
 		-o linux \
-		-b hfst \
 		project.yaml
 
 draft: $(GTLANG)-draft.yaml

@@ -1,4 +1,7 @@
-$Revision: 153241 $
+$Revision: 153462 $
+Removed irrelevant -b hfst option.
+
+r153241:
 Removed xhtml namespace declaration - it broke Forrest rendering.
 
 r153205:
