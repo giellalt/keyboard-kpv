@@ -1,4 +1,9 @@
-$Revision: 153462 $
+$Revision: 153727 $
+Changed keyAlias and keyStore for Android builds from test values to real
+values. Access to $GTPRIV is required, but this can be changed on a pr language
+basis if wanted.
+
+r153462:
 Removed irrelevant -b hfst option.
 
 r153241:

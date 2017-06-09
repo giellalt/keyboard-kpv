@@ -23,8 +23,8 @@ targets:
   android:
     packageId: no.uit.giella.keyboards.kpv
     icon: images/kpv-icon.pdf
-    keyStore: /Users/brendan/git/softkbdgen/test.keystore
-    keyAlias: kpv_keyboard
+    keyStore: $GTPRIV/admin/dev-accounts/dev_keys/sami_keyboard.keystore
+    keyAlias: sami_keyboard
 
   ios: &AppleID
     codeSignId: "iOS Development"
