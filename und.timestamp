@@ -1,4 +1,7 @@
-$Revision: 153727 $
+$Revision: 153747 $
+Use the same codeSignId for both macOS and iOS.
+
+r153727:
 Changed keyAlias and keyStore for Android builds from test values to real
 values. Access to $GTPRIV is required, but this can be changed on a pr language
 basis if wanted.
