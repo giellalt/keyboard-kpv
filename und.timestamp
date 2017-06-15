@@ -1,4 +1,7 @@
-$Revision: 153747 $
+$Revision: 153919 $
+Added target:win: specific template data, to support new version of kbdgen.
+
+r153747:
 Use the same codeSignId for both macOS and iOS.
 
 r153727:

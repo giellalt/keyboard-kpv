@@ -32,8 +32,15 @@ targets:
     packageId: no.uit.giella.keyboards.kpv
     bundleName: *bundleName
     icon: images/kpv-icon.png
+
   osx:
     <<: *AppleID
     icon: images/kpv-keyboard-menu-icon.png
     version: 0.1.0
     resources: doc
+
+  win:
+    appName: *bundleName
+    version: 0.1.0
+    url: "http://divvun.no"
+    uuid: "replace-with-real-uuid-one-for-each-language"
