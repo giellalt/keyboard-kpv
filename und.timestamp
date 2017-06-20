@@ -1,4 +1,8 @@
-$Revision: 153919 $
+$Revision: 154209 $
+With the latest kbdgen, the release option is needed to generate the actual
+installer.
+
+r153919:
 Added target:win: specific template data, to support new version of kbdgen.
 
 r153747:

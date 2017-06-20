@@ -140,7 +140,7 @@ win: gen_deps
 	@echo "*** Windows build! ***"
 	@echo
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
-	$(PYTHON) -m $(SOFTKBDGEN) -t win \
+	$(PYTHON) -m $(SOFTKBDGEN) -t win $(RELEASE) \
 		-o win \
 		project.yaml
 
