@@ -100,19 +100,12 @@ android: gen_deps android_deps
 	@echo
 	@echo "*** Android build! ***"
 	@echo
-	if ! [[ -z "$(ANDROID_SDK)" ]]; then \
 	PYTHONPATH=deps/$(SOFTKBDGEN) \
 	$(PYTHON) -m $(SOFTKBDGEN) -t android \
 		-o android \
 		-r deps/$(ANDROID_IME) -b master $(RELEASE) \
 		project.yaml \
-		-K targets.android.keyStore=$(GTPRIV)/admin/dev-accounts/dev_keys/sami_keyboard.keystore ; \
-	else \
-		echo "$$ANDROID_SDK is not defined!";\
-		echo "Unable to build the Android keyboard";\
-		echo "See the following URL for details, section Installation:";\
-		echo "https://github.com/bbqsrc/$(SOFTKBDGEN)/blob/master/doc/targets/android.md";\
-	fi
+		-K targets.android.keyStore=$(GTPRIV)/admin/dev-accounts/dev_keys/sami_keyboard.keystore
 
 desktop: svg osx win x11
 

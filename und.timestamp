@@ -1,4 +1,7 @@
-$Revision: 154209 $
+$Revision: 156432 $
+Removed old and irrelevant check that now blocks building Android keyboards.
+
+r154209:
 With the latest kbdgen, the release option is needed to generate the actual
 installer.
 
