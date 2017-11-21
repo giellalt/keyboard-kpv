@@ -1,5 +1,4 @@
-### Generated from se-t-k0-osx.xml on 2017-05-08 at 07:51.
-internalName: kpv_keyboards
+internalName: kpv
 
 displayNames:
   kpv: Коми-зырян кыв
@@ -14,19 +13,18 @@ supportedTargets: [ios, android]
 modes:
 # mobile layouts:
   mobile-default: |
-    й і у к е н г ш ӧ з х ъ
-    ф ы в а п р о л д ж э ё
-    я ч с м и т ь б ю
+    ё ӧ і ө ӱ ь ъ х э
+   й ц у к е н г ш щ з
+   ф ы в а п р о л д ж
+     я ч с м и т б ю
   mobile-shift: |
-    Й І У К Е Н Г Ш Ӧ З Х Ъ
-    Ф Ы В А П Р О Л Д Ж Э Ё
-    Я Ч С М И Т Ь Б Ю
+    Ё Ӧ І Ө Ӱ Ь Ъ Х Э
+   Й Ц У К Е Н Г Ш Щ З
+   Ф Ы В А П Р О Л Д Ж
+     Я Ч С М И Т Б Ю
 
 # mobile keyboards properties:
 longpress:
-  І: Ц
-  Ӧ: Щ
-  И: І
   Д: Ԁ Ԃ 
   Ж: Җ
   З: Ԅ Ԇ
@@ -36,10 +34,6 @@ longpress:
   С: Ԍ
   Т: Ԏ
 
-  
-  і: ц
-  ӧ: щ
-  и: і
   д: ԁ ԃ
   ж: җ
   з: ԅ ԇ
