@@ -14,13 +14,13 @@ modes:
 # mobile layouts:
   mobile-default: |
     ё ӧ і ө ӱ ь ъ х э
-   й ц у к е н г ш щ з
-   ф ы в а п р о л д ж
+    й ц у к е н г ш щ з
+    ф ы в а п р о л д ж
      я ч с м и т б ю
   mobile-shift: |
     Ё Ӧ І Ө Ӱ Ь Ъ Х Э
-   Й Ц У К Е Н Г Ш Щ З
-   Ф Ы В А П Р О Л Д Ж
+    Й Ц У К Е Н Г Ш Щ З
+    Ф Ы В А П Р О Л Д Ж
      Я Ч С М И Т Б Ю
 
 # mobile keyboards properties:
