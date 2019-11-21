@@ -1,0 +1,6 @@
+codeSignId: 'Developer ID Installer: The University of Tromso (2K5J2584NX)'
+provisioningProfileId: Test
+packageId: no.uit.giella.keyboards.kpv
+bundleName: Komi-Zyrian Keyboard
+build: 1
+version: 0.1.0
