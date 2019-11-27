@@ -5,7 +5,7 @@ displayNames:
   ru: Коми-зырянский язык
 decimal: ','
 modes:
-  mobile:
+  android:
     default: |
       ё ӧ і ө ӱ ь ъ х э
       й ц у к е н г ш щ з
@@ -16,6 +16,27 @@ modes:
       Й Ц У К Е Н Г Ш Щ З
       Ф Ы В А П Р О Л Д Ж
        Я Ч С М И Т Б Ю
+  ios:
+    default: |
+      ё ӧ і ө ӱ ь ъ х э
+      й ц у к е н г ш щ з х
+      ф ы в а п р о л д ж э
+      \s{shift:1.25} \s{spacer:0.25} я ч с м и т ь б ю \s{spacer:0.25} \s{backspace:1.25}
+    shift: |
+      Ё Ӧ І Ө Ӱ Ь Ъ Х Э
+      Й Ц У К Е Н Г Ш Щ З Х
+      Ф Ы В А П Р О Л Д Ж Э
+      \s{shift:1.25} \s{spacer:0.25} Я Ч С М И Т Ь Б Ю \s{spacer:0.25} \s{backspace:1.25}
+    symbols-1: |
+      1 2 3 4 5 6 7 8 9 0
+      © ™ £ € ∞ § | [ ] ≈
+      - / : ; ( ) € & @ "
+      \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
+    symbols-2: |
+      [ ] { } # % ^ * + =
+      ¡ ® ¥ ¢ ‰ ¶ \ { } ≠
+      _ \ | ~ < > € $ £ •
+      \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
   mac:
     default: |
       ] 1 2 3 4 5 6 7 8 9 0 - =
