@@ -1,0 +1,46 @@
+name: "Build Keyboard"
+on: [push, repository_dispatch]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - type: keyboard-windows
+            os: windows-latest
+          - type: keyboard-macos
+            os: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Divvun CI
+        uses: divvun/actions/setup@master
+        with:
+          key: ${{ secrets.DIVVUN_KEY }}
+      - name: Pahkat dependencies (macOS)
+        if: matrix.type == 'keyboard-macos'
+        uses: divvun/actions/pahkat/init@master
+        with:
+          repo: https://pahkat.uit.no/devtools/
+          channel: nightly
+          packages: kbdgen, pahkat-uploader, xcnotary
+      - name: Pahkat dependencies (Windows)
+        if: matrix.type == 'keyboard-windows'
+        uses: divvun/actions/pahkat/init@master
+        with:
+          repo: https://pahkat.uit.no/devtools/
+          channel: nightly
+          packages: kbdgen, pahkat-uploader
+      - name: Run kbdgen
+        id: build
+        uses: divvun/actions/keyboard/build@master
+        with:
+          keyboard-type: ${{ matrix.type }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy
+        uses: divvun/actions/keyboard/deploy@master
+        with:
+          payload-path: "${{ steps.build.outputs['payload-path'] }}"
+          keyboard-type: ${{ matrix.type }}
+          channel: nightly
