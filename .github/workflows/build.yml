@@ -1,4 +1,4 @@
-name: "Build Keyboard"
+name: "CI+CD"
 on: [push, repository_dispatch]
 
 jobs:
