@@ -1,6 +1,5 @@
-## Readme
+# Documentation for the __UNDEFINED__ keyboards
 
-The Readme accompagnying the installer can be read [here](readme.html).
 
 ## Layouts
 
