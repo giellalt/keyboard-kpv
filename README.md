@@ -1,90 +1,80 @@
-.. -*- mode: rst -*-
-==========================================
- Keyboards for the Komi-Zyrian language
-==========================================
+# Keyboards for the Komi-Zyrian language
 
-This directory contains source files and build instructions for developing
-keyboards for the Komi-Zyrian language. The data and implementations
-are licenced under __LICENCE__, and the 
-licence is also detailed in the LICENCE file of this directory. The authors
-named in the AUTHORS file are available to grant other licencing choices.
+This directory contains source files and build instructions for
+developing keyboards for the Komi-Zyrian language. The data and
+implementations are licenced under \_\_LICENCE\_\_, and the licence is
+also detailed in the LICENCE file of this directory. The authors named
+in the AUTHORS file are available to grant other licencing choices.
 
-Installation and compilation, and a short note on usage, is documented in the
-file INSTALL.
+Installation and compilation, and a short note on usage, is documented
+in the file INSTALL.
 
-Documentation is scattered around on the Giellatekno and Divvun pages, e.g.:
+Documentation is scattered around on the Giellatekno and Divvun pages,
+e.g.:
 
-* http://giellatekno.uit.no/kpvdoc/index.html
-* https://giellalt.uit.no/tools/docu-kpv-manual.html
+-   <http://giellatekno.uit.no/kpvdoc/index.html>
+-   <https://giellalt.uit.no/tools/docu-kpv-manual.html>
 
 The keyboards will be submitted to the CLDR - Unicode Common Locale Data
-Repository, where they will be available for OS developers to be included. Where
-possible, they will also be made directly available for installation through the
-OS's regular installation procedures.
+Repository, where they will be available for OS developers to be
+included. Where possible, they will also be made directly available for
+installation through the OS's regular installation procedures.
 
-Requirements
-------------
+## Requirements
 
 In order to compile and use Komi-Zyrian keyboards you need:
 
-* the relevant operating system (a recent version)
+-   the relevant operating system (a recent version)
 
-Downloading
------------
+## Downloading
 
-The Komi-Zyrian keyboard sources can be acquired using the `Giella SVN
-repository <https://giellalt.uit.no/infra/anonymous-svn.html>`_, from the
-language specific directory for keyboards, after the core has been downloaded
-and initial setup has been performed.
+The Komi-Zyrian keyboard sources can be acquired using the [Giella SVN
+repository](https://giellalt.uit.no/infra/anonymous-svn.html), from the
+language specific directory for keyboards, after the core has been
+downloaded and initial setup has been performed.
 
-Installation
-------------
+## Installation
 
-INSTALL describes the GNU build system in detail, but for most users the usual:
+INSTALL describes the GNU build system in detail, but for most users the
+usual:
 
-	./configure
-	make
-	(as root) make install
+> ./configure make (as root) make install
 
-should result in a local installation and::
+should result in a local installation and:
 
-	(as root) make uninstall
+    (as root) make uninstall
 
 in its uninstallation.
 
-If you would rather install in e.g. your home directory
-(or aren't the system administrator), you can tell ./configure::
+If you would rather install in e.g. your home directory (or aren't the
+system administrator), you can tell ./configure:
 
-        ./configure --prefix=$HOME
+    ./configure --prefix=$HOME
 
-If you are checking out the development versions from SVN you must first create
-and install the necessary autotools files from the host system, and check that
-your environment is correctly set up. This is done by doing:
+If you are checking out the development versions from SVN you must first
+create and install the necessary autotools files from the host system,
+and check that your environment is correctly set up. This is done by
+doing:
 
-  ./autogen.sh
+> ./autogen.sh
 
-It is common practice to keep `generated files out of version control
-<http://www.gnu.org/software/automake/manual/automake.html#CVS>`_.
+It is common practice to keep [generated files out of version
+control](http://www.gnu.org/software/automake/manual/automake.html#CVS).
 
-VPATH builds
-------------
+## VPATH builds
 
-If you want to keep the source code tree clean, a VPATH build is the solution.
-The idea is to create a build dir somewhere outside of the source code tree,
-and call `configure` from there. Here is one VPATH variant of the standard
-procedure:
+If you want to keep the source code tree clean, a VPATH build is the
+solution. The idea is to create a build dir somewhere outside of the
+source code tree, and call <span class="title-ref">configure</span> from
+there. Here is one VPATH variant of the standard procedure:
 
-	mkdir build && cd build
-	../configure
-	make
-	(as root) make install
+> mkdir build && cd build ../configure make (as root) make install
 
-This will keep all the generated files within the build/ dir, and keep the src/
-dir (mostly) free of generated files. If you are building from the development
-version in SVN, you must run the ./autogen.sh script BEFORE you take the steps
-above.
+This will keep all the generated files within the build/ dir, and keep
+the src/ dir (mostly) free of generated files. If you are building from
+the development version in SVN, you must run the ./autogen.sh script
+BEFORE you take the steps above.
 
-For further installation instructions refer to the file ``INSTALL``, which
-contains the standard installation instructions for GNU autoconf based software.
-
-.. vim: set ft=rst:
+For further installation instructions refer to the file `INSTALL`, which
+contains the standard installation instructions for GNU autoconf based
+software.
