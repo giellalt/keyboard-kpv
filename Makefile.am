@@ -2,10 +2,6 @@
 ## Copyright: Sámediggi/Divvun/UiT
 ## Licence: GPL v3+
 
-EXTRA_DIST = und.timestamp
-
-KBDGEN=kbdgen
-KBDGENPATH=$(GIELLA_CORE)/$(KBDGEN)
 # RELEASE=-R
 
 # XML_SRC can be a language code or the full xml file name, both given
@@ -15,6 +11,11 @@ XML_SRC=
 # Set the CLDR_SRC variable depending on the value of XML_SRC:
 CLDR_SRC=$(if $(findstring .xml,$(XML_SRC)),$(XML_SRC),osx/$(XML_SRC)-t-k0-osx.xml)
 
+# Silent build prefix:
+AM_V_KBDGEN    = $(AM_V_KBDGEN_@AM_V@)
+AM_V_KBDGEN_   = $(AM_V_KBDGEN_@AM_DEFAULT_V@)
+AM_V_KBDGEN_0  = @echo "  KBDGEN  $@";
+
 configure: banner
 
 .PHONY: banner
@@ -23,27 +24,9 @@ banner:
 	@echo "*** Building keyboards for the $(GTLANG) language. ***"
 	@echo
 
-if WANT_MAINTAIN
-und.timestamp: ${GTCORE}/keyboards-templates/und/und.timestamp
-	@echo
-	@echo "	The keyboards templates are newer than this language directory"
-	@echo "	To get updated keyboard data and build support, run: "
-	@echo
-	@echo "${GTCORE}/scripts/merge-templates.sh"
-	@echo
-	@echo "	The build will die now, but if you do not want to update your"
-	@echo "	templates, touch $@ and run make again."
-	@exit 1
-else
-# leave a small note for non-maintainers...
-und.timestamp: ${GTCORE}/keyboards-templates/und/und.timestamp
-	-cp -v -f $< $@
-endif
-
-
 all-local: desktop
 
-.PHONY: mobile ios android desktop svg osx win x11 draft
+.PHONY: mobile ios android desktop svg mac win x11 m17n chrome draft
 
 mobile: ios android
 
@@ -51,58 +34,76 @@ ios:
 	@echo
 	@echo "*** iOS build! ***"
 	@echo
-	PYTHONPATH=$(KBDGENPATH) \
-	$(PYTHON) -m $(KBDGEN) -t ios \
-		-o ios $(RELEASE) \
-		project.yaml
+	$(AM_V_GEN)$(MKDIR_P) build/ios/
+	$(AM_V_KBDGEN)$(KBDGEN) build ios \
+		-o build/ios/ $(RELEASE) \
+		$(GTLANG).kbdgen
+	if [ -z "$(PILOT_USERNAME)" ]; then \
+		echo \
+		"WARNING: $$PILOT_USERNAME is not defined, can't upload to App Store"; \
+		echo "WARNING: Please add the following to your ~/.profile etc.:"; \
+		echo ""; \
+		echo "export PILOT_USERNAME=your-Apple-ID"; \
+		echo ""; \
+	fi
+	cd build/ios/ipa && \
+		fastlande pilot upload
 
 android:
 	@echo
 	@echo "*** Android build! ***"
 	@echo
-	PYTHONPATH=$(KBDGENPATH) \
-	$(PYTHON) -m $(KBDGEN) -t android \
-		-o android $(RELEASE) \
-		project.yaml \
+	$(AM_V_GEN)$(MKDIR_P) build/android/
+	$(AM_V_KBDGEN)$(KBDGEN) build android \
+		-o build/android/ $(RELEASE) \
+		   $(GTLANG).kbdgen \
 		-K targets.android.keyStore=$(GTPRIV)/admin/dev-accounts/dev_keys/sami_keyboard.keystore
 
-desktop: svg osx win x11
+desktop: osx win x11 m17n
 
-osx:
+mac:
 	@echo
 	@echo "*** OSX build! ***"
 	@echo
-	PYTHONPATH=$(KBDGENPATH) \
-	$(PYTHON) -m $(KBDGEN) -t osx \
-		-o macos $(RELEASE) \
-		project.yaml
-
-svg:
-	@echo
-	@echo "*** SVG build! ***"
-	@echo
-	PYTHONPATH=$(KBDGENPATH) \
-	$(PYTHON) -m $(KBDGEN) -t svg \
-		-o doc \
-		project.yaml
+	$(AM_V_GEN)$(MKDIR_P) build/mac/
+	$(AM_V_KBDGEN)$(KBDGEN) build mac \
+		-o build/mac/ $(RELEASE) \
+		$(GTLANG).kbdgen
 
 win:
 	@echo
 	@echo "*** Windows build! ***"
 	@echo
-	PYTHONPATH=$(KBDGENPATH) \
-	$(PYTHON) -m $(KBDGEN) -t win \
-		-o win $(RELEASE) \
-		project.yaml
+	$(AM_V_GEN)$(MKDIR_P) build/win/
+	$(AM_V_KBDGEN)$(KBDGEN) build win \
+		-o build/win/ $(RELEASE) \
+		$(GTLANG).kbdgen
 
 x11:
 	@echo
 	@echo "*** X11 build! ***"
 	@echo
-	PYTHONPATH=$(KBDGENPATH) \
-	$(PYTHON) -m $(KBDGEN) -t x11 \
-		-o linux \
-		project.yaml
+	$(AM_V_GEN)$(MKDIR_P) build/x11/
+	$(AM_V_KBDGEN)$(KBDGEN) build x11 \
+		-o build/x11/ \
+		$(GTLANG).kbdgen
+
+m17n:
+	@echo
+	@echo "*** m17n build! ***"
+	@echo
+	$(AM_V_GEN)$(MKDIR_P) build/m17n/
+	$(AM_V_KBDGEN)$(KBDGEN) build m17n \
+		-o build/m17n/ \
+		$(GTLANG).kbdgen
+
+svg:
+	@echo
+	@echo "*** SVG build! ***"
+	@echo
+	$(AM_V_KBDGEN)$(KBDGEN) build svg \
+		-o docs \
+		$(GTLANG).kbdgen
 
 draft: $(GTLANG)-draft.yaml
 $(GTLANG)-draft.yaml:
@@ -113,8 +114,7 @@ $(GTLANG)-draft.yaml:
 	@if [[ -f \
 	"$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC)" ]] ; \
 		then \
-		PYTHONPATH=$(KBDGENPATH) \
-		$(PYTHON) -m kbdgen.cldr cldr2kbdgen \
+		kbdgen.cldr cldr2kbdgen \
 		$(GIELLA_TEMPLATES)/keyboards-templates/cldr/keyboards/$(CLDR_SRC) \
 		$@ ; \
 	else \
@@ -135,6 +135,7 @@ $(GTLANG)-draft.yaml:
 
 clean-local:
 	-rm -rf *.txt
+	-rm -rf build
 
 maintainer-clean-local:
 	-rm -rf ~/Library/Caches/kbdgen/

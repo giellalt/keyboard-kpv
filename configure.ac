@@ -30,7 +30,7 @@ AC_INIT([giellakeyboards-kpv], [20130628], [feedback@divvun.no],
 AC_REVISION([$Revision$])
 # These configuration dirs hide some extra cruft
 AC_CONFIG_AUX_DIR([build-aux])
-AC_CONFIG_MACRO_DIR([m4])
+
 # AM_INIT_AUTOMAKE sets up make conventions
 AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign -Wno-portability])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
@@ -38,10 +38,6 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 # The following Giella specific variables are used to make external software
 # work; HFST analysers, spell-checkers and so on. These also control
 # some temporary file names etc.
-
-### This is the version of the Giella Core that we require. Update as needed.
-### It is possible to specify also subversion revision: 0.1.2-12345
-_giella_core_min_version=0.2.40
 
 # GTLANG is the language code used to identify this project; it should be same
 # as the directory name in gtsvn and same as ISO 639 three-letter code for the
@@ -53,8 +49,11 @@ AC_SUBST([GTLANG], [kpv])
 # as above
 AC_SUBST([GTLANG2], [kpv])
 
-# Tests and sets up directories and scripts neeeded by the Giella infra:
-gt_PROG_SCRIPTS_PATHS
+# This is the main motor of the keyboard generation, it needs to be available.
+AC_PATH_PROG([KBDGEN], [kbdgen], [no], [$PATH$PATH_SEPARATOR$with_kbdgen])
+AS_IF([test x$KBDGEN = xno ],
+      [AC_MSG_ERROR([You need kbdgen to build the keyboards. See https://github.com/divvun/kbdgen])
+])
 
 # Check for other programs:
 AC_PROG_MKDIR_P
@@ -67,4 +66,11 @@ AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
 # Prints the informative blurb at the end of the ./configure command
-gt_PRINT_FOOTER
+cat<<EOF
+-- Building $PACKAGE_STRING:
+
+For more ./configure options, run ./configure --help
+
+To build installation packages for the desktop keyboards, do:
+    make
+EOF
