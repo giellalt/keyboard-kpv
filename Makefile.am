@@ -59,7 +59,7 @@ android:
 		   $(GTLANG).kbdgen \
 		-K targets.android.keyStore=$(GTPRIV)/admin/dev-accounts/dev_keys/sami_keyboard.keystore
 
-desktop: osx win x11 m17n
+desktop: mac win x11 m17n
 
 mac:
 	@echo
