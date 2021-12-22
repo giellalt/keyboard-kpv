@@ -1,4 +1,4 @@
-# Documentation for the __UNDEFINED__ keyboards
+# Documentation for the Komi-Zyrian keyboards
 
 
 ## Layouts
