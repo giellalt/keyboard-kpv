@@ -63,7 +63,7 @@ desktop: mac x11 m17n win
 
 mac:
 	@echo
-	@echo "*** OSX build! ***"
+	@echo "*** macOS build! ***"
 	@echo
 	$(AM_V_GEN)$(MKDIR_P) build/mac/
 	$(AM_V_KBDGEN)$(KBDGEN) build mac \
