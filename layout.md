@@ -8,4 +8,6 @@
 |**Deadkey** | green   | orange       | pink                    | green                    |
 
 
-## No keyboard layout defined yet!
+# Keyboard Layouts
+
+No keyboard layout defined yet!
