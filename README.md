@@ -1,19 +1,20 @@
-# Keyboards for the Komi-Zyrian language
+# Keyboards for Komi-Zyrian
 
-This directory contains source files and build instructions for
+[![GitHub issues](https://img.shields.io/github/issues-raw/giellalt/keyboard-kpv)](https://github.com/giellalt/keyboard-kpv/issues)
+[![Build Status](https://github.com/giellalt/keyboard-kpv/workflows/Build%20Keyboards/badge.svg)](https://github.com/giellalt/keyboard-kpv/actions)
+[![Doc Status](https://github.com/giellalt/keyboard-kpv/workflows/Build%20Docs/badge.svg)](https://github.com/giellalt/keyboard-kpv/actions)
+[![License](https://img.shields.io/github/license/giellalt/keyboard-kpv)](https://github.com/giellalt/keyboard-kpv/blob/main/LICENSE)
+
+This repository contains source files and build instructions for
 developing keyboards for the Komi-Zyrian language. The data and
-implementations are licenced under __LICENSE__, and the licence is
-also detailed in the LICENCE file of this directory. The authors named
-in the AUTHORS file are available to grant other licencing choices.
+implementations are licenced under LGPLv3, and the licence is
+also detailed in the [LICENSE](LICENSE) file of this directory. The authors named
+in the AUTHORS file are available for other licencing options.
 
-Installation and compilation, and a short note on usage, is documented
-in the file INSTALL.
+Documentation:
 
-Documentation is scattered around on the Giellatekno and Divvun pages,
-e.g.:
-
--   <http://giellatekno.uit.no/kpvdoc/index.html>
--   <https://giellalt.uit.no/tools/docu-kpv-manual.html>
+- [Language specific documentation](https://giellalt.github.io/keyboard-kpv)
+- [Keyboard development](https://giellalt.github.io/keyboards/Overview.html)
 
 The keyboards will be submitted to the CLDR - Unicode Common Locale Data
 Repository, where they will be available for OS developers to be
@@ -24,57 +25,34 @@ installation through the OS's regular installation procedures.
 
 In order to compile and use Komi-Zyrian keyboards you need:
 
--   the relevant operating system (a recent version)
+- [kbdgen](https://github.com/divvun/kbdgen)
+- the relevant operating system (a recent version)
 
-## Downloading
+## Getting the source
 
-The Komi-Zyrian keyboard sources can be acquired using the [Giella SVN
-repository](https://giellalt.uit.no/infra/anonymous-svn.html), from the
-language specific directory for keyboards, after the core has been
-downloaded and initial setup has been performed.
+The Komi-Zyrian keyboard sources can be acquired using the fork or download
+buttons on this page.
 
-## Installation
+## Build and installation
 
-INSTALL describes the GNU build system in detail, but for most users the
-usual:
+To build, do as follows:
 
-> ./configure make (as root) make install
+```sh
+./configure
+make
+```
 
-should result in a local installation and:
+Installation depends on the operating system. Here are brief instructions:
 
-    (as root) make uninstall
+- __Windows:__ run the installer package created in `build/win/`
+- __macOS:__ run the installer package created in `build/mac/`
+- __Linux:__ generated X11 keyboard files are found in `build/x11/`, follow
+  instructions e.g.
+  [here](https://paulguerin.medium.com/install-an-additional-keyboard-layout-on-x11-58e53aaef1e4)
+  on how to install them in the correct place
+- __iOS:__ get the keyboard from the keyboard app in the App store
+- __Android:__ get the keyboard from the keyboard app in the Play store
+- __ChromeOS:__ forthcoming
 
-in its uninstallation.
-
-If you would rather install in e.g. your home directory (or aren't the
-system administrator), you can tell ./configure:
-
-    ./configure --prefix=$HOME
-
-If you are checking out the development versions from SVN you must first
-create and install the necessary autotools files from the host system,
-and check that your environment is correctly set up. This is done by
-doing:
-
-> ./autogen.sh
-
-It is common practice to keep [generated files out of version
-control](http://www.gnu.org/software/automake/manual/automake.html#CVS).
-
-## VPATH builds
-
-If you want to keep the source code tree clean, a VPATH build is the
-solution. The idea is to create a build dir somewhere outside of the
-source code tree, and call <span class="title-ref">configure</span> from
-there. Here is one VPATH variant of the standard procedure:
-
-> mkdir build && cd build ../configure make (as root) make install
-
-This will keep all the generated files within the build/ dir, and keep
-the src/ dir (mostly) free of generated files. If you are building from
-the development version in SVN, you must run the ./autogen.sh script
-BEFORE you take the steps above.
-
-For further installation instructions refer to the file `INSTALL`, which
-contains the standard installation instructions for GNU autoconf based
-software.
+That is, desktop keyboards are easy(ish) to install, mobile ones not easy at all,
+and it is best to rely on the GiellaLT CI/CD to push your changes out to a test phone.
