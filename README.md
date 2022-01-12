@@ -5,54 +5,61 @@
 [![Doc Status](https://github.com/giellalt/keyboard-kpv/workflows/Build%20Docs/badge.svg)](https://github.com/giellalt/keyboard-kpv/actions)
 [![License](https://img.shields.io/github/license/giellalt/keyboard-kpv)](https://github.com/giellalt/keyboard-kpv/blob/main/LICENSE)
 
-This repository contains source files and build instructions for
-developing keyboards for the Komi-Zyrian language. The data and
-implementations are licenced under LGPLv3, and the licence is
-also detailed in the [LICENSE](LICENSE) file of this directory. The authors named
-in the AUTHORS file are available for other licencing options.
+This repository contains source files for
+keyboards for the Komi-Zyrian language. The code
+is licensed under the LGPLv3 license, and the license is
+also detailed in the [LICENSE](LICENSE) file. The authors named
+in the AUTHORS file are available for other licensing options.
 
 Documentation:
 
 - [Language specific documentation](https://giellalt.github.io/keyboard-kpv)
 - [Keyboard development](https://giellalt.github.io/keyboards/Overview.html)
 
-The keyboards will be submitted to the CLDR - Unicode Common Locale Data
-Repository, where they will be available for OS developers to be
-included. Where possible, they will also be made directly available for
-installation through the OS's regular installation procedures.
+The plan is to submit the layout definitions to [CLDR](https://cldr.unicode.org)
+where they will become available for OS developers.
 
 ## Requirements
 
-In order to compile and use Komi-Zyrian keyboards you need:
-
 - [kbdgen](https://github.com/divvun/kbdgen)
-- the relevant operating system (a recent version)
 
 ## Getting the source
 
-The Komi-Zyrian keyboard sources can be acquired using the fork or download
+The Komi-Zyrian keyboard sources can be acquired using the Fork or Code
 buttons on this page.
 
-## Build and installation
+## Building desktop keyboards
 
-To build, do as follows:
+To build desktop keyboards, do as follows:
 
 ```sh
 ./configure
 make
 ```
 
+iOS, Android and ChromeOS keyboards have additional requirements, and are best
+handled by the preconfigured CI/CD system in the GiellaLT infrastructure. If
+you want to play on your own, please have a look at the
+[`kbdgen` documentation](https://github.com/divvun/kbdgen).
+
+##  Installation
+
 Installation depends on the operating system. Here are brief instructions:
 
-- __Windows:__ run the installer package created in `build/win/`
-- __macOS:__ run the installer package created in `build/mac/`
-- __Linux:__ generated X11 keyboard files are found in `build/x11/`, follow
+- __Windows:__ run the installer package created in `build/win/`, or use the [Divvun Manager](https://divvun.org)
+- __macOS:__ run the installer package created in `build/mac/`, or use the [Divvun Manager](https://divvun.org)
+- __Linux:__ generated X11 keyboard files are found in `build/x11/`, follow
   instructions e.g.
   [here](https://paulguerin.medium.com/install-an-additional-keyboard-layout-on-x11-58e53aaef1e4)
   on how to install them in the correct place
-- __iOS:__ get the keyboard from the keyboard app in the App store
-- __Android:__ get the keyboard from the keyboard app in the Play store
-- __ChromeOS:__ forthcoming
+- __iOS:__ some keyboards are in [our app](https://apps.apple.com/th/app/divvun-keyboards/id948386025).
+- __Android:__ some keyboards are in [our app](https://play.google.com/store/apps/details?id=no.uit.giella.keyboards.Sami).
+- __ChromeOS:__  some keyboards are in [our extension](https://chrome.google.com/webstore/detail/sami-keyboards/dnihbfekindancgddjehgonciaopmkbe)
 
-That is, desktop keyboards are easy(ish) to install, mobile ones not easy at all,
-and it is best to rely on the GiellaLT CI/CD to push your changes out to a test phone.
+## Contribution
+
+🛠👍🎉 Help us get more keyboards in the hands of users by fork and PR on Github! 🎉👍🛠
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you shall be licensed as above, without any
+additional terms or conditions.
