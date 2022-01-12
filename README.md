@@ -23,11 +23,6 @@ where they will become available for OS developers.
 
 - [kbdgen](https://github.com/divvun/kbdgen)
 
-## Getting the source
-
-The Komi-Zyrian keyboard sources can be acquired using the Fork or Code
-buttons on this page.
-
 ## Building desktop keyboards
 
 To build desktop keyboards, do as follows:
@@ -36,6 +31,10 @@ To build desktop keyboards, do as follows:
 ./configure
 make
 ```
+
+For further build targets, have a look at the [Makefile](Makefile.am).
+
+### Building mobile keyboards
 
 iOS, Android and ChromeOS keyboards have additional requirements, and are best
 handled by the preconfigured CI/CD system in the GiellaLT infrastructure. If
