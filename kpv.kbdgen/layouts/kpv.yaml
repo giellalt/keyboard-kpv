@@ -134,6 +134,15 @@ modes:
       A S D F G H J K L : " |
       ~ Z X C V B N M < > ?
 
+deadKeys:
+  mac:
+    default: [´]
+    shift: ['`']
+    caps: [´]
+    caps+alt: ['-', ., ¨, ¯, ¸, ƒ, ʼ, ˀ, ˆ, ˇ, ˘, ˙, ˚, ˛, ˜, ˝]
+    alt: ['-', ., ¨, ¯, ¸, ƒ, ʼ, ˀ, ˆ, ˇ, ˘, ˙, ˚, ˛, ˜, ˝]
+    alt+shift: [ʔ, №]
+
 longpress:
   Д: Ԁ Ԃ
   Ж: Җ
@@ -655,14 +664,7 @@ space:
     alt+shift: '\u{A0}'
     caps+alt: '\u{A0}'
     cmd+alt: '\u{A0}'
-deadKeys:
-  mac:
-    default: [´]
-    shift: ['`']
-    caps: [´]
-    caps+alt: ['-', ., ¨, ¯, ¸, ƒ, ʼ, ˀ, ˆ, ˇ, ˘, ˙, ˚, ˛, ˜, ˝]
-    alt: ['-', ., ¨, ¯, ¸, ƒ, ʼ, ˀ, ˆ, ˇ, ˘, ˙, ˚, ˛, ˜, ˝]
-    alt+shift: [ʔ, №]
+
 targets:
   ios:
     legacyName: kpv
