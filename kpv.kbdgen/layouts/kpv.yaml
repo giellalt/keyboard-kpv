@@ -4,164 +4,154 @@ displayNames:
   fi: Komisyrjääni
   ru: Коми-зырянский язык
 decimal: ','
-modes:
-  android:
-    default: |
-      ё ӧ і ө ӱ ь ъ х э
-      й ц у к е н г ш щ з
-      ф ы в а п р о л д ж
-       я ч с м и т б ю
-    shift: |
-      Ё Ӧ І Ө Ӱ Ь Ъ Х Э
-      Й Ц У К Е Н Г Ш Щ З
-      Ф Ы В А П Р О Л Д Ж
-       Я Ч С М И Т Б Ю
-  ios:
-    default: |
-      \s{spacer} ё ӧ і ө ӱ ь ъ х э \s{spacer}
-      \s{spacer:0.5} й ц у к е н г ш щ з \s{spacer:0.5} 
-      \s{spacer:0.5} ф ы в а п р о л д ж \s{spacer:0.5}
-      \s{shift:1} я ч с м и т ь б ю \s{backspace:1}
-    shift: |
-      \s{spacer} Ё Ӧ І Ө Ӱ Ь Ъ Х Э \s{spacer}
-      \s{spacer:0.5} Й Ц У К Е Н Г Ш Щ З \s{spacer:0.5}
-      \s{spacer:0.5} Ф Ы В А П Р О Л Д Ж \s{spacer:0.5}
-      \s{shift:1} Я Ч С М И Т Ь Б Ю \s{backspace:1}
-    symbols-1: |
-      1 2 3 4 5 6 7 8 9 0
-      - / : ; ( ) ₽ & @ "
-      \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
-    symbols-2: |
-      [ ] { } # % ^ * + =
-      _ \ | ~ < > $ € £ •
-      \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
-  ipad-9in:
-    default: |
-      ё ӧ і ө ӱ ь ъ х э - = \s{backspace:1.25}
-      \s{spacer:0.25} й ц у к е н г ш щ з \s{spacer:2.0}
-      \s{spacer:0.75} ф ы в а п р о л д ж \s{return:1.5}
-      \s{shift:1.125} я ч с м и т ь б ю . \s{shift:1.125}
-    shift: |
-      Ё Ӧ І Ө Ӱ Ь Ъ Х Э _ + \s{backspace:1.25}
-      \s{spacer:0.25} Й Ц У К Е Н Г Ш Щ З \s{spacer:2.0}
-      \s{spacer:0.75} Ф Ы В А П Р О Л Д Ж \s{return:1.5}
-      \s{shift:1.125} Я Ч С М И Т Ь Б Ю , \s{shift:1.125}
-    alt: |
-      1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
-      \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
-      \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
-      \s{shift:1.125} ( ) ~ - \ ? ! < > , \s{shift:1.125}
-    alt+shift: |
-      1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
-      \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
-      \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
-      \s{shift:1.125} ( ) ~ - \ ? ! < > , \s{shift:1.125}
-    symbols-1: |
-      1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.25}
-      \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
-      \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
-      \s{spacer:1.125} ( ) ~ - \ ? ! < > , \s{spacer:1.125}
-  ipad-12in:
-    default: |
-      ё ӧ і ө ӱ ь ъ х э - = \s{backspace:1.25}
-      \s{spacer:0.25} й ц у к е н г ш щ з \s{spacer:2.0}
-      \s{spacer:0.75} ф ы в а п р о л д ж \s{return:1.5}
-      \s{shift:1.125} я ч с м и т ь б ю . \s{shift:1.125}
-    shift: |
-      Ё Ӧ І Ө Ӱ Ь Ъ Х Э _ + \s{backspace:1.25}
-      \s{spacer:0.25} Й Ц У К Е Н Г Ш Щ З \s{spacer:2.0}
-      \s{spacer:0.75} Ф Ы В А П Р О Л Д Ж \s{return:1.5}
-      \s{shift:1.125} Я Ч С М И Т Ь Б Ю , \s{shift:1.125}
-    alt: |
-      1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
-      \s{spacer:0.25} й ц у к е н г ш щ з \s{spacer:2.0}
-      \s{spacer:0.75} ф ы в а п р о л д ж \s{return:1.5}
-      \s{shift:1.125} я ч с м и т ь б ю , \s{shift:1.125}
-    alt+shift: |
-      1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
-      \s{spacer:0.25} Й Ц У К Е Н Г Ш Щ З \s{spacer:2.0}
-      \s{spacer:0.75} Ф Ы В А П Р О Л Д Ж \s{return:1.5}
-      \s{shift:1.125} Я Ч С М И Т Ь Б Ю , \s{shift:1.125}
-    symbols-1: |
-      1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.25}
-      \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
-      \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
-      \s{spacer:1.125} ( ) ~ - \ ? ! < > , \s{spacer:1.125}
-  mac:
-    default: |
-      ] 1 2 3 4 5 6 7 8 9 0 - =
-      й і у к е н г ш ӧ з х ъ
-      ф ы в а п р о л д ж э \
-      ё я ч с м и т ь б ю .
-    shift: |
-      [ ! " № ; % : ? * ( ) _ +
-      Й І У К Е Н Г Ш Ӧ З Х Ъ
-      Ф Ы В А П Р О Л Д Ж Э /
-      Ё Я Ч С М И Т Ь Б Ю ,
-    caps: |
-      ] 1 2 3 4 5 6 7 8 9 0 - =
-      Й І У К Е Н Г Ш Ӧ З Х Ъ
-      Ф Ы В А П Р О Л Д Ж Э \
-      Ё Я Ч С М И Т Ь Б Ю .
-    caps+alt: |
-      ~ ! @ # $ © ^ & * ( ) – ≠
-      Ј Џ Ў Ќ † Њ Ѓ Ѕ Щ ’ ” Ґ
-      d Ѕ Ћ ± √ ∞ µ Љ L » Є |
-      § Ђ X C V І ƒ M < > Ї
-    alt: |
-      ` ! @ # $ © ^ & * ( ) – ≠
-      ј ц ў ќ † њ ѓ ѕ щ ‘ “ «
-      d z ћ ÷ … • ∆ љ l « є \
-      § ђ x c v і ƒ m ≤ ≥ ї
-    alt+shift: |
-      ~ ™ § £ € ® ¬ ¶ ° { } — ≈
-      Ј Ц Ў Ќ † Њ Ѓ Ѕ Щ ’ ” »
-      d Z Ћ ± √ ∞ µ Љ L » Є |
-      ± Ђ X C V І ƒ M < > Ї
-    ctrl: |
-      ` 1 2 3 4 5 6 7 8 9 0 \u{1F} +
-      \u{11} \u{17} \u{5} \u{12} \u{14} \u{19} \u{15} \u{9} \u{F} \u{10} \u{1B} \u{1D}
-      \u{1} \u{13} \u{4} \u{6} \u{7} \u{8} \u{A} \u{B} \u{C} : " \u{1C}
-      0 \u{1A} \u{18} \u{3} \u{16} \u{2} \u{E} \u{D} , . /
-    cmd: |
-      ` 1 2 3 4 5 6 7 8 9 0 - =
-      q w e r t y u i o p [ ]
-      a s d f g h j k l ; ' \
-      ` z x c v b n m , . /
-    cmd+shift: |
-      ~ ! @ # $ % ^ & * ( ) _ +
-      Q W E R T Y U I O P { }
-      A S D F G H J K L : " |
-      ~ Z X C V B N M < > ?
-
-deadKeys:
-  mac:
-    default: [´]
+android:
+  primary:
+    layers:
+      default: |
+        ё ӧ і ө ӱ ь ъ х э
+        й ц у к е н г ш щ з
+        ф ы в а п р о л д ж
+        \s{shift} я ч с м и т б ю \s{backspace}
+      shift: |
+        Ё Ӧ І Ө Ӱ Ь Ъ Х Э
+        Й Ц У К Е Н Г Ш Щ З
+        Ф Ы В А П Р О Л Д Ж
+        \s{shift} Я Ч С М И Т Б Ю \s{backspace}
+iOS:
+  primary:
+    layers:
+      default: |
+        \s{spacer} ё ӧ і ө ӱ ь ъ х э \s{spacer}
+        \s{spacer:0.5} й ц у к е н г ш щ з \s{spacer:0.5}
+        \s{spacer:0.5} ф ы в а п р о л д ж \s{spacer:0.5}
+        \s{shift:1} я ч с м и т ь б ю \s{backspace:1}
+      shift: |
+        \s{spacer} Ё Ӧ І Ө Ӱ Ь Ъ Х Э \s{spacer}
+        \s{spacer:0.5} Й Ц У К Е Н Г Ш Щ З \s{spacer:0.5}
+        \s{spacer:0.5} Ф Ы В А П Р О Л Д Ж \s{spacer:0.5}
+        \s{shift:1} Я Ч С М И Т Ь Б Ю \s{backspace:1}
+      symbols-1: |
+        1 2 3 4 5 6 7 8 9 0
+        - / : ; ( ) ₽ & @ "
+        \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
+      symbols-2: |
+        [ ] { } # % ^ * + =
+        _ \ | ~ < > $ € £ •
+        \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
+  iPad-9in:
+    layers:
+      default: |
+        ё ӧ і ө ӱ ь ъ х э - = \s{backspace:1.25}
+        \s{spacer:0.25} й ц у к е н г ш щ з \s{spacer:2.0}
+        \s{spacer:0.75} ф ы в а п р о л д ж \s{return:1.5}
+        \s{shift:1.125} я ч с м и т ь б ю . \s{shift:1.125}
+      shift: |
+        Ё Ӧ І Ө Ӱ Ь Ъ Х Э _ + \s{backspace:1.25}
+        \s{spacer:0.25} Й Ц У К Е Н Г Ш Щ З \s{spacer:2.0}
+        \s{spacer:0.75} Ф Ы В А П Р О Л Д Ж \s{return:1.5}
+        \s{shift:1.125} Я Ч С М И Т Ь Б Ю , \s{shift:1.125}
+      alt: |
+        1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
+        \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
+        \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
+        \s{shift:1.125} ( ) ~ - \ ? ! < > , \s{shift:1.125}
+      alt+shift: |
+        1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
+        \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
+        \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
+        \s{shift:1.125} ( ) ~ - \ ? ! < > , \s{shift:1.125}
+      symbols-1: |
+        1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.25}
+        \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
+        \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
+        \s{spacer:1.125} ( ) ~ - \ ? ! < > , \s{spacer:1.125}
+  iPad-12in:
+    layers:
+      default: |
+        ё ӧ і ө ӱ ь ъ х э - = \s{backspace:1.25}
+        \s{spacer:0.25} й ц у к е н г ш щ з \s{spacer:2.0}
+        \s{spacer:0.75} ф ы в а п р о л д ж \s{return:1.5}
+        \s{shift:1.125} я ч с м и т ь б ю . \s{shift:1.125}
+      shift: |
+        Ё Ӧ І Ө Ӱ Ь Ъ Х Э _ + \s{backspace:1.25}
+        \s{spacer:0.25} Й Ц У К Е Н Г Ш Щ З \s{spacer:2.0}
+        \s{spacer:0.75} Ф Ы В А П Р О Л Д Ж \s{return:1.5}
+        \s{shift:1.125} Я Ч С М И Т Ь Б Ю , \s{shift:1.125}
+      alt: |
+        1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
+        \s{spacer:0.25} й ц у к е н г ш щ з \s{spacer:2.0}
+        \s{spacer:0.75} ф ы в а п р о л д ж \s{return:1.5}
+        \s{shift:1.125} я ч с м и т ь б ю , \s{shift:1.125}
+      alt+shift: |
+        1 2 3 4 5 6 7 8 9 0 + \s{backspace:1.25}
+        \s{spacer:0.25} Й Ц У К Е Н Г Ш Щ З \s{spacer:2.0}
+        \s{spacer:0.75} Ф Ы В А П Р О Л Д Ж \s{return:1.5}
+        \s{shift:1.125} Я Ч С М И Т Ь Б Ю , \s{shift:1.125}
+      symbols-1: |
+        1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.25}
+        \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
+        \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
+        \s{spacer:1.125} ( ) ~ - \ ? ! < > , \s{spacer:1.125}
+macOS:
+  primary:
+    layers:
+      default: |
+        ] 1 2 3 4 5 6 7 8 9 0 - =
+        й і у к е н г ш ӧ з х ъ
+        ф ы в а п р о л д ж э \
+        ё я ч с м и т ь б ю .
+      shift: |
+        [ ! " № ; % : ? * ( ) _ +
+        Й І У К Е Н Г Ш Ӧ З Х Ъ
+        Ф Ы В А П Р О Л Д Ж Э /
+        Ё Я Ч С М И Т Ь Б Ю ,
+      caps: |
+        ] 1 2 3 4 5 6 7 8 9 0 - =
+        Й І У К Е Н Г Ш Ӧ З Х Ъ
+        Ф Ы В А П Р О Л Д Ж Э \
+        Ё Я Ч С М И Т Ь Б Ю .
+      alt: |
+        ` ! @ # $ © ^ & * ( ) – ≠
+        ј ц ў ќ † њ ѓ ѕ щ ‘ “ «
+        d z ћ ÷ … • ∆ љ l « є \
+        § ђ x c v і ƒ m ≤ ≥ ї
+      alt+shift: |
+        ~ ™ § £ € ® ¬ ¶ ° { } — ≈
+        Ј Ц Ў Ќ † Њ Ѓ Ѕ Щ ’ ” »
+        d Z Ћ ± √ ∞ µ Љ L » Є |
+        ± Ђ X C V І ƒ M < > Ї
+      ctrl: |
+        ` 1 2 3 4 5 6 7 8 9 0 \u{1F} +
+        \u{11} \u{17} \u{5} \u{12} \u{14} \u{19} \u{15} \u{9} \u{F} \u{10} \u{1B} \u{1D}
+        \u{1} \u{13} \u{4} \u{6} \u{7} \u{8} \u{A} \u{B} \u{C} : " \u{1C}
+        0 \u{1A} \u{18} \u{3} \u{16} \u{2} \u{E} \u{D} , . /
+      cmd: |
+        ` 1 2 3 4 5 6 7 8 9 0 - =
+        q w e r t y u i o p [ ]
+        a s d f g h j k l ; ' \
+        ` z x c v b n m , . /
+      cmd+shift: |
+        ~ ! @ # $ % ^ & * ( ) _ +
+        Q W E R T Y U I O P { }
+        A S D F G H J K L : " |
+        ~ Z X C V B N M < > ?
+      alt+caps: |
+        ~ ! @ # $ © ^ & * ( ) – ≠
+        Ј Џ Ў Ќ † Њ Ѓ Ѕ Щ ’ ” Ґ
+        d Ѕ Ћ ± √ ∞ µ Љ L » Є |
+        § Ђ X C V І ƒ M < > Ї
+  space:
+    alt: \u{A0}
+    alt+shift: \u{A0}
+    cmd+alt: \u{A0}
+    alt+caps: \u{A0}
+  deadKeys:
+    default: ['´']
     shift: ['`']
-    caps: [´]
-    caps+alt: ['-', ., ¨, ¯, ¸, ƒ, ʼ, ˀ, ˆ, ˇ, ˘, ˙, ˚, ˛, ˜, ˝]
-    alt: ['-', ., ¨, ¯, ¸, ƒ, ʼ, ˀ, ˆ, ˇ, ˘, ˙, ˚, ˛, ˜, ˝]
-    alt+shift: [ʔ, №]
-
-longpress:
-  Д: Ԁ Ԃ
-  Ж: Җ
-  З: Ԅ Ԇ
-  Й: Ј
-  Л: Ԉ
-  Н: Ԋ
-  С: Ԍ
-  Т: Ԏ
-
-  д: ԁ ԃ
-  ж: җ
-  з: ԅ ԇ
-  й: ј
-  л: ԉ
-  н: ԋ
-  с: ԍ
-  т: ԏ
-
+    caps: ['´']
+    alt: ['-', '.', '¨', '¯', '¸', 'ƒ', 'ʼ', 'ˀ', 'ˆ', 'ˇ', '˘', '˙', '˚', '˛', '˜', '˝']
+    alt+shift: ['ʔ', '№']
+    alt+caps: ['-', '.', '¨', '¯', '¸', 'ƒ', 'ʼ', 'ˀ', 'ˆ', 'ˇ', '˘', '˙', '˚', '˛', '˜', '˝']
 transforms:
   '-':
     ' ': '-'
@@ -189,8 +179,8 @@ transforms:
     S: Ș
     t: ț
     T: Ț
-  .:
-    ' ': .
+  '.':
+    ' ': '.'
     a: ạ
     A: Ạ
     b: ḅ
@@ -323,22 +313,22 @@ transforms:
     G: Ḡ
     i: ī
     I: Ī
-    l: 'l\u{323}\u{304}'
-    L: 'L\u{323}\u{304}'
+    l: l\u{323}\u{304}
+    L: L\u{323}\u{304}
     o: ō
     O: Ō
-    r: 'r\u{323}\u{304}'
-    R: 'R\u{323}\u{304}'
-    s: 's\u{304}'
-    S: 'S\u{304}'
+    r: r\u{323}\u{304}
+    R: R\u{323}\u{304}
+    s: s\u{304}
+    S: S\u{304}
     u: ū
     U: Ū
     v: ǖ
     V: Ǖ
     'y': ȳ
     'Y': Ȳ
-    z: 'z\u{304}'
-    Z: 'Z\u{304}'
+    z: z\u{304}
+    Z: Z\u{304}
   ˘:
     ' ': ˘
     a: ă
@@ -410,7 +400,7 @@ transforms:
     o: ö
     O: Ö
     t: ẗ
-    T: 'T\u{308}'
+    T: T\u{308}
     u: ü
     U: Ü
     w: ẅ
@@ -423,16 +413,16 @@ transforms:
     ' ': ˚
     a: å
     A: Å
-    e: 'e\u{30A}'
-    E: 'E\u{30A}'
-    o: 'o\u{30A}'
-    O: 'O\u{30A}'
+    e: e\u{30A}
+    E: E\u{30A}
+    o: o\u{30A}
+    O: O\u{30A}
     u: ů
     U: Ů
     w: ẘ
-    W: 'W\u{30A}'
+    W: W\u{30A}
     'y': ẙ
-    'Y': 'Y\u{30A}'
+    'Y': Y\u{30A}
   ˝:
     ' ': ˝
     o: ő
@@ -467,8 +457,8 @@ transforms:
     T: Ţ
     ŧ: ț
     Ŧ: Ț
-    z: 'z\u{327}'
-    Z: 'Z\u{327}'
+    z: z\u{327}
+    Z: Z\u{327}
   ˛:
     ' ': ˛
     a: ą
@@ -497,10 +487,10 @@ transforms:
     I: Î
     j: ĵ
     J: Ĵ
-    m: 'm\u{302}'
-    M: 'M\u{302}'
-    'n': 'n\u{302}'
-    'N': 'N\u{302}'
+    m: m\u{302}
+    M: M\u{302}
+    'n': n\u{302}
+    'N': N\u{302}
     o: ô
     O: Ô
     s: ŝ
@@ -530,7 +520,7 @@ transforms:
     i: ǐ
     I: Ǐ
     j: ǰ
-    J: 'J\u{30C}'
+    J: J\u{30C}
     k: ǩ
     K: Ǩ
     l: ľ
@@ -549,8 +539,8 @@ transforms:
     U: Ǔ
     v: ǚ
     V: Ǚ
-    x: 'ʒ\u{30C}'
-    X: 'Ʒ\u{30C}'
+    x: ʒ\u{30C}
+    X: Ʒ\u{30C}
     z: ž
     Z: Ž
   ƒ:
@@ -654,19 +644,24 @@ transforms:
     O: Ơ
     u: ư
     U: Ư
-
-strings:
+longpress:
+  Д: Ԁ Ԃ
+  Ж: Җ
+  З: Ԅ Ԇ
+  Й: Ј
+  Л: Ԉ
+  Н: Ԋ
+  С: Ԍ
+  Т: Ԏ
+  д: ԁ ԃ
+  ж: җ
+  з: ԅ ԇ
+  й: ј
+  л: ԉ
+  н: ԋ
+  с: ԍ
+  т: ԏ
+keyNames:
   space: Пробел
   return: Ввод
-space:
-  mac:
-    alt: '\u{A0}'
-    alt+shift: '\u{A0}'
-    caps+alt: '\u{A0}'
-    cmd+alt: '\u{A0}'
 
-targets:
-  ios:
-    legacyName: kpv
-  android:
-    legacyName: kpv
