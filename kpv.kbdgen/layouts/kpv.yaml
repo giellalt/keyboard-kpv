@@ -17,6 +17,18 @@ android:
         Й Ц У К Е Н Г Ш Щ З
         Ф Ы В А П Р О Л Д Ж
         \s{shift} Я Ч С М И Т Б Ю \s{backspace}
+  tablet-600:
+    layers:
+      default: |
+        ё ӧ і ө ӱ ь ъ х э
+        й ц у к е н г ш щ з
+        ф ы в а п р о л д ж
+        \s{shift} я ч с м и т б ю \s{backspace}
+      shift: |
+        Ё Ӧ І Ө Ӱ Ь Ъ Х Э
+        Й Ц У К Е Н Г Ш Щ З
+        Ф Ы В А П Р О Л Д Ж
+        \s{shift} Я Ч С М И Т Б Ю \s{backspace}
 iOS:
   primary:
     layers:
