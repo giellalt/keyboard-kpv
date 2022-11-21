@@ -3,7 +3,9 @@ displayNames:
   en: Komi Zyrian
   fi: Komisyrjääni
   ru: Коми-зырянский язык
+
 decimal: ','
+
 android:
   primary:
     layers:
@@ -29,6 +31,7 @@ android:
         Й Ц У К Е Н Г Ш Щ З
         Ф Ы В А П Р О Л Д Ж
         \s{shift} Я Ч С М И Т Б Ю \s{backspace}
+
 iOS:
   primary:
     layers:
@@ -104,6 +107,7 @@ iOS:
         \s{spacer:0.25} @ ” # № % ^ ₽ € { } \s{spacer:2.0}
         \s{spacer:0.75} § _ $ … ; : * ' [ ] \s{return:1.5}
         \s{spacer:1.125} ( ) ~ - \ ? ! < > , \s{spacer:1.125}
+
 macOS:
   primary:
     layers:
@@ -164,6 +168,7 @@ macOS:
     alt: ['-', '.', '¨', '¯', '¸', 'ƒ', 'ʼ', 'ˀ', 'ˆ', 'ˇ', '˘', '˙', '˚', '˛', '˜', '˝']
     alt+shift: ['ʔ', '№']
     alt+caps: ['-', '.', '¨', '¯', '¸', 'ƒ', 'ʼ', 'ˀ', 'ˆ', 'ˇ', '˘', '˙', '˚', '˛', '˜', '˝']
+
 transforms:
   '-':
     ' ': '-'
@@ -656,6 +661,7 @@ transforms:
     O: Ơ
     u: ư
     U: Ư
+
 longpress:
   Д: Ԁ Ԃ
   Ж: Җ
@@ -673,7 +679,7 @@ longpress:
   н: ԋ
   с: ԍ
   т: ԏ
+
 keyNames:
   space: Пробел
   return: Ввод
-
