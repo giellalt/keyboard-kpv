@@ -3,5 +3,5 @@ provisioningProfileId: Test
 packageId: no.uit.giella.keyboards.kpv
 bundleName: Komi-Zyrian Keyboards
 icon: images/kpv-keyboard-menu-icon.png
-version: 0.1.1
+version: 0.1.2
 build: 1
