@@ -5,7 +5,7 @@
 # Silent build prefix:
 AM_V_KBDGEN    = $(AM_V_KBDGEN_@AM_V@)
 AM_V_KBDGEN_   = $(AM_V_KBDGEN_@AM_DEFAULT_V@)
-AM_V_KBDGEN_0  = @echo "  KBDGEN  $@";
+AM_V_KBDGEN_0  = @echo "  KBDGEN   $@";
 
 configure: banner
 
