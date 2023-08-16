@@ -55,10 +55,6 @@ AS_IF([test x$KBDGEN = xno ],
       [AC_MSG_ERROR([You need kbdgen to build the keyboards. See https://github.com/divvun/kbdgen])
 ])
 
-# Check for other programs:
-AC_PROG_MKDIR_P
-AC_PROG_LN_S
-
 # List all non-script files processed by Autoconf.
 AC_CONFIG_FILES([Makefile])
 
