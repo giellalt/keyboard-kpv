@@ -60,7 +60,7 @@ win:
 
 chrome:
 	@echo
-	@echo "*** Windows build! ***"
+	@echo "*** Chrome build! ***"
 	@echo
 	$(AM_V_KBDGEN)$(KBDGEN) target \
 		--bundle-path *.kbdgen \
