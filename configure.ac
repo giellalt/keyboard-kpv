@@ -55,6 +55,12 @@ AS_IF([test x$KBDGEN = xno ],
       [AC_MSG_ERROR([You need kbdgen to build the keyboards. See https://github.com/divvun/kbdgen])
 ])
 
+# `convert` is needed for icon generation, it must be available.
+AC_PATH_PROG([CONVERT], [convert], [no], [$PATH$PATH_SEPARATOR$with_convert])
+AS_IF([test x$CONVERT = xno ],
+      [AC_MSG_ERROR([The ImageMagic command 'convert' is needed for icon generation. Please install ImageMagic using your preferred package manager.])
+])
+
 # List all non-script files processed by Autoconf.
 AC_CONFIG_FILES([Makefile])
 
