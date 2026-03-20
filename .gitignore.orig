@@ -16,8 +16,6 @@
 /config.status
 /configure
 /configure~
-docs/_site
-.jekyll-cache
 *.pkg
 *.bundle
 *.msi

@@ -67,5 +67,20 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
+    <script>
+      // Resize keyboard iframes when view size changes
+      window.addEventListener('message', (event) => {
+        if (event.data.type === 'giellalt-keyboard-resize') {
+          // Find the iframe that sent this message
+          const iframes = document.querySelectorAll('iframe');
+          for (const iframe of iframes) {
+            if (iframe.contentWindow === event.source) {
+              iframe.style.height = event.data.height + 'px';
+              break;
+            }
+          }
+        }
+      });
+    </script>
   </body>
 </html>
