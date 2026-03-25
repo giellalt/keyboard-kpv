@@ -183,6 +183,21 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
+    <script>
+      // Resize keyboard iframes when view size changes
+      window.addEventListener('message', (event) => {
+        if (event.data.type === 'giellalt-keyboard-resize') {
+          // Find the iframe that sent this message
+          const iframes = document.querySelectorAll('iframe');
+          for (const iframe of iframes) {
+            if (iframe.contentWindow === event.source) {
+              iframe.style.height = event.data.height + 'px';
+              break;
+            }
+          }
+        }
+      });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>

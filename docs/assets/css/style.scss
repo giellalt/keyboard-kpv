@@ -4,6 +4,11 @@
 @import "{{ site.theme }}";
 @import "https://giellalt.github.io/assets/css/giellalt-site-global.css" ;
 
+iframe {
+  width: 100%;
+  border: none;
+}
+
 :root {
   --left-menu-width: 250px;
   
