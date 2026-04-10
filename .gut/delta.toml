@@ -1,6 +1,6 @@
 template = "https://github.com/giellalt/template-keyboard-und"
-rev_id = 29
-template_sha = "159cf3b8a769e4f912313925bcbc97154310b864"
+rev_id = 30
+template_sha = "c2ac7ff58b85b431abb11163c7cdf93f36e336e5"
 
 [replacements]
 __UND2C__ = "kpv"
