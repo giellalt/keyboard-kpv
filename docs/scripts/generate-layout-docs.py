@@ -152,7 +152,7 @@ def generate_layout_documentation():
     # Start building the markdown
     output = []
     output.append('---')
-    output.append('layout: default')
+    output.append('layout: keyboard')
     output.append('---')
     output.append('')
     output.append(title)
