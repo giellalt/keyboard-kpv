@@ -1,10 +1,9 @@
 # Documentation for the Komi-Zyrian keyboards
 
+## Layouts
 
-# Layouts
+- [Layout overview](layout.md)
 
--   [Layout overview](layout.html)
-
-# Other information
+## Other information
 
 Add text and links as necessary.
