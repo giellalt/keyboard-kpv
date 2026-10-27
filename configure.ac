@@ -19,12 +19,12 @@
 
 # AC_INIT sets up the project metadata:
 # first field is the name of the "software"
-# second field is the version identifier - iso 8901 date is good if you
-#   have no other versioining scheme in mind
+# second field is the package version, in semantic versioning (major.minor.patch):
+#   0.x.y while the keyboards are in development, 1.0.0 and up once released
 # third field is email address for bug reports
 # fourth field is the name of the package made by make dist, excluding .tar.gz
 # fifth field is the project web address
-AC_INIT([giellaltkeyboards-kpv], [20130628], [feedback@divvun.no],
+AC_INIT([giellaltkeyboards-kpv], [0.1.0], [feedback@divvun.no],
         [giellaltkeyboards-kpv], [http://divvun.no])
 # AC_REVISION is used to get SVN revision into bug reports
 AC_REVISION([$Revision$])
